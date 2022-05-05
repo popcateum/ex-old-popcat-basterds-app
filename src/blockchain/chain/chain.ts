@@ -2,11 +2,11 @@ import { ethers } from 'ethers'
 import Web3Modal from 'web3modal'
 // import WalletConnectProvider from '@walletconnect/web3-provider'
 
-let ethereum: any | undefined
+// let ethereum: any | undefined
+// let providerOptions: any
 let provider: any
 let web3Modal: any
 let instance: any
-// let providerOptions: any
 let signer: any
 
 async function web3ModalConnect() {
@@ -31,16 +31,16 @@ async function web3ModalConnect() {
 }
 
 async function getInstance() {
-  const instance = await web3Modal.connect()
+  instance = await web3Modal.connect()
   return instance
 }
 
-async function getProvider(instance: any) {
-  const provider = new ethers.providers.Web3Provider(instance, 'any')
+async function getProvider() {
+  provider = new ethers.providers.Web3Provider(instance, 'any')
   return provider
 }
 
-async function getSigner(provider: any) {
+async function getSigner() {
   signer = provider.getSigner()
   return signer
 }
@@ -86,25 +86,25 @@ async function testTransaction(ca: any, abi: any, signer: any, myadr: any) {
   return ethers.utils.formatEther(myPaxBalance)
 }
 
-async function addChain() {
-  await ethereum.request({
-    method: 'wallet_addEthereumChain',
-    params: [
-      {
-        chainId: '0x4bd',
-        chainName: 'Popcateum',
-        nativeCurrency: {
-          name: 'Popcat',
-          symbol: 'POP',
-          decimals: 18
-        },
-        rpcUrls: ['https://dataseed.popcateum.org'],
-        blockExplorerUrls: ['https://explorer.popcateum.org']
-      }
-    ]
-  })
-}
+// async function addChain() {
+//   await ethereum.request({
+//     method: 'wallet_addEthereumChain',
+//     params: [
+//       {
+//         chainId: '0x4bd',
+//         chainName: 'Popcateum',
+//         nativeCurrency: {
+//           name: 'Popcat',
+//           symbol: 'POP',
+//           decimals: 18
+//         },
+//         rpcUrls: ['https://dataseed.popcateum.org'],
+//         blockExplorerUrls: ['https://explorer.popcateum.org']
+//       }
+//     ]
+//   })
+// }
 
 export {
-  web3ModalConnect, getInstance, getProvider, getSigner
+  web3ModalConnect, getInstance, getProvider, getSigner, disconnect, getAddress, getShortAddress, getChainId, accountsChanged, chainChanged, connectState
 }

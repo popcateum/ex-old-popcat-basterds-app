@@ -37,6 +37,8 @@
   }
   .window-content {
     border: 0px;
+    display: flex;
+    flex-direction: column;
   }
 
   .menu-list {

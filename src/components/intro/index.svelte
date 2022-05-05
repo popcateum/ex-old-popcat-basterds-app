@@ -1,5 +1,6 @@
 <script lang="ts">
   import MovingBar from './moving-bar.svelte'
+  import Connect from '@/components/connect/index.svelte'
 
   let isMouseOver = true
 
@@ -62,9 +63,7 @@
   </div>
 
   <div class="button-wrap">
-    <button class="wallet-button">
-      <div class="button-text">Connect Wallet</div>
-    </button>
+    <Connect />
   </div>
 </div>
 
