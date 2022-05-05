@@ -1,4 +1,78 @@
 <script lang="ts">
+  interface Info {
+    nftImage: string
+    tier: string
+    year: string
+    title: string
+    infoContent: string
+  }
+
+  const infoData: Array<Info> = [
+    {
+      nftImage: './images/nft.png',
+      tier: 'Top 0% ~ 0.1%',
+      year: '2015',
+      title: 'Legendary Popcat',
+      infoContent:
+        'Some people can not believe that you started to use Ethereum blockchain in 2015. You’re one of early adopters in the blockchain. 2015 is too early even though some chart services do not have price data. Well, did you participate in Ethereum ICO? Your blockchain story becomes a hot topic among people.Are you already a whale? People would guess so.'
+    },
+    {
+      nftImage: './images/nft.png',
+      tier: 'Top 0.1% ~ 2.56%',
+      year: '2016',
+      title: 'GOAT POPCAT',
+      infoContent:
+        'If you say you started to use Ethereum blockchain in 2016, people will be amazed and respect you. You are above the top 3% of cryptonians because you entered the blockchain industry so early compared to other people. The price of Ethereum was less than 10 USD.You’re a fossil which is alive.'
+    },
+    {
+      nftImage: './images/nft.png',
+      tier: 'Top 2.56% ~ 12.15%',
+      year: '2017',
+      title: 'Grand Master Popcat',
+      infoContent:
+        '2017 was an important time when the ecosystem of Ethereum was getting bigger rapidly due to its price increase. The price reached around 400 USD per one Ethereum and people were shocked. Still you’re one of the early adopters.'
+    },
+    {
+      nftImage: './images/nft.png',
+      tier: 'Top 12.15% ~ 19.67%',
+      year: '2018',
+      title: 'Master Popcat',
+      infoContent:
+        '2018 was a hard time for cryptonians. If you were born in 2018, you can say that you experienced an enormous bear market and now you survived. You deserve respect as an old bastard.'
+    },
+    {
+      nftImage: './images/nft.png',
+      tier: 'Top 19.67% ~ 32.15%',
+      year: '2019',
+      title: 'Padawan Popcat',
+      infoContent:
+        'Theoretically, you are still early adopters. You’re not that old compared to older bastards popcats but now you know much about blockchain and Ethereum. Maybe you are experienced enough to brag to non-cryptonians.'
+    },
+    {
+      nftImage: './images/nft.png',
+      tier: 'Top 32.15% ~ 52.55%',
+      year: '2020',
+      title: 'Youngling Popcat',
+      infoContent:
+        'You are not that old actually. Need to respect older popcat bastards.Keep the spirit of HODL.Youngling Popcats start to have subtle lasers on their eyes.'
+    },
+    {
+      nftImage: './images/nft.png',
+      tier: 'Top 52.55% ~ 63.18%',
+      year: '2021',
+      title: 'Kitten Popcat',
+      infoContent:
+        'At the last, you start to have a small laser on your eyes. But you are too young.Be a young popcat bastard.'
+    },
+    {
+      nftImage: './images/nft.png',
+      tier: 'Top 63.18% ~ 100%',
+      year: '2022',
+      title: 'N00b Popcat',
+      infoContent:
+        'You are a N00b popcat.You need to grow and learn more.You need to respect old bastard popcats.You are too young to have a laser on your eyes. Good luck, N00b.'
+    }
+  ]
 </script>
 
 <div class="wrap">
@@ -17,20 +91,19 @@
   </div>
 
   <div class="content-wrap">
-    <div class="info-wrap">
-      <img src="images/nft.png" alt="nft" class="nft-image" />
-      <div class="nft-info">
-        <div class="tier">Top 0% ~ 0.1%</div>
-        <div class="year">2015</div>
-        <div class="title">Legendary Popcat</div>
-        <div class="info">
-          Some people can not believe that you started to use Ethereum blockchain in 2015. You’re one of early adopters
-          in the blockchain. 2015 is too early even though some chart services do not have price data. Well, did you
-          participate in Ethereum ICO? Your blockchain story becomes a hot topic among people.Are you already a whale?
-          People would guess so.
+    {#each infoData as info}
+      <div class="info-wrap">
+        <img src="{info.nftImage}" alt="nft" class="nft-image" />
+        <div class="nft-info">
+          <div class="tier">{info.tier}</div>
+          <div class="year">{info.year}</div>
+          <div class="title">{info.title}</div>
+          <div class="info">
+            {info.infoContent}
+          </div>
         </div>
       </div>
-    </div>
+    {/each}
   </div>
 </div>
 

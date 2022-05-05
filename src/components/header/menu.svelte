@@ -16,12 +16,12 @@
       </div>
       <div class="window-content">
         <div class="menu-list">
-          <a href="/about" class="header-menu-item-link" style="color: black;">
+          <a href="#my-nft" class="header-menu-item-link" style="color: black;" on:click>
             <div class="header-menu-item-text" style="color: black;">MyNFT</div>
           </a>
         </div>
         <div class="menu-list">
-          <a href="https://opensea.io/" class="header-menu-item-link" target="_blank">
+          <a href="https://opensea.io/" class="header-menu-item-link" target="_blank" on:click>
             <div class="header-menu-item-text">Opensea</div>
           </a>
         </div>

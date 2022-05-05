@@ -3,7 +3,7 @@
   import Twitter from './twitter.svelte'
 </script>
 
-<div class="wrap">
+<div class="wrap" id="my-nft">
   <div class="title-wrap">
     <div class="middle-title-color">My NFT</div>
   </div>
