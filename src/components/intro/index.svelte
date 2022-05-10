@@ -328,6 +328,18 @@
       flex-direction: column;
       align-items: center;
       margin: 50px auto;
+      .title {
+        font-family: Karmatic Arcade;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 50px;
+        line-height: 55px;
+        max-width: 375px;
+        animation: typing 3s steps(22), blink 0.5s step-end infinite alternate;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 0px;
+      }
     }
 
     .button-wrap {
