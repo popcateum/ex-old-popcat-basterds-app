@@ -63,7 +63,7 @@
   </div>
 
   <div class="button-wrap">
-    <Connect />
+    <button class="normal-button"> check my wallet </button>
   </div>
 </div>
 
@@ -96,7 +96,24 @@
     font-style: normal;
     font-weight: 400;
     font-size: 84px;
+    width: 100%;
     line-height: 103px;
+    animation: typing 3s steps(22), blink 0.5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
   }
 
   .sub-text-one {
@@ -135,6 +152,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 50px;
+    width: 100%;
   }
 
   .button-wrap {

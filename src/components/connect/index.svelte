@@ -92,16 +92,21 @@
   }
 
   .non-button-wrap-ab {
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    width: 260px;
 
     .wallet-button {
+      position: absolute;
       display: flex;
       flex-direction: column;
       padding: 15px 15px;
       box-sizing: border-box;
+      top: 20px;
+      right: 80px;
+      width: 260px;
       .address-wrap {
         display: flex;
         justify-content: space-between;
@@ -112,7 +117,7 @@
         border: 0.2px solid #aaaaaa;
       }
       .content {
-        font-size: 7px;
+        font-size: 10px;
         line-height: 14px;
       }
       .sign-out {
@@ -125,5 +130,43 @@
 
   .icon {
     margin-left: 10px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .non-button-wrap-ab {
+      width: 182px;
+      .wallet-button {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        padding: 15px 15px;
+        box-sizing: border-box;
+        top: 20px;
+        right: 80px;
+        width: 182px;
+      }
+    }
+    .address {
+      font-size: 10px;
+      line-height: 20px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .non-button-wrap-ab {
+      width: auto;
+      .wallet-button {
+        width: 100%;
+        position: static;
+        display: flex;
+        flex-direction: column;
+        padding: 15px 15px;
+        box-sizing: border-box;
+      }
+    }
+    .address {
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
 </style>

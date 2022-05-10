@@ -12,7 +12,7 @@
 <div class="header">
   <div class="header-logo">
     <a href="/" class="header-logo-link">
-      <img src="/images/logo1.png" alt="logo" class="header-logo-img" />
+      <img src="/images/oldpopcat.gif" alt="logo" class="header-logo-img" />
       <div class="header-logo-title">OLD POPCAT BASTARDS</div>
     </a>
   </div>
@@ -37,13 +37,17 @@
 </div>
 
 <style lang="scss">
+  .header-logo-img {
+    width: 70px;
+    height: 70px;
+  }
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 80px;
     height: 86px;
-    background-color: $secondary-color;
+    background-color: $normal-button-color;
   }
 
   .header-logo-link {
@@ -51,10 +55,6 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
-  }
-
-  .header-logo-img {
-    margin-right: 10px;
   }
 
   .header-logo-title {
@@ -106,7 +106,7 @@
       align-items: center;
       padding: 0 80px;
       height: 86px;
-      background-color: $secondary-color;
+      background-color: $normal-button-color;
     }
 
     .header-logo-link {
@@ -114,10 +114,6 @@
       justify-content: center;
       align-items: center;
       text-decoration: none;
-    }
-
-    .header-logo-img {
-      margin-right: 10px;
     }
 
     .header-logo-title {
@@ -168,7 +164,7 @@
       align-items: center;
       padding: 0 20px;
       height: 75px;
-      background-color: $secondary-color;
+      background-color: $normal-button-color;
     }
 
     .header-logo-link {
@@ -176,10 +172,6 @@
       justify-content: center;
       align-items: center;
       text-decoration: none;
-    }
-
-    .header-logo-img {
-      margin-right: 10px;
     }
 
     .header-logo-title {

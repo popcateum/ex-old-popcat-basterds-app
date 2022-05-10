@@ -20,19 +20,19 @@
       <div class="footer-sns">
         <ul class="sns-wrap">
           <li class="sns-icon">
-            <a href="/" target="_blank"><Fa icon="{faTwitter}" /></a>
+            <a href="https://twitter.com/Oldpopcat" target="_blank"><Fa icon="{faTwitter}" /></a>
           </li>
           <li class="sns-icon">
-            <a href="/" target="_blank"><Fa icon="{faDiscord}" /></a>
+            <a href="https://discord.gg/M9TFTzhxJt" target="_blank"><Fa icon="{faDiscord}" /></a>
           </li>
           <li class="sns-icon">
-            <a href="/" target="_blank"><Fa icon="{faTelegram}" /></a>
+            <a href="https://t.me/popcateumofficial" target="_blank"><Fa icon="{faTelegram}" /></a>
           </li>
           <li class="sns-icon">
-            <a href="/" target="_blank"><Fa icon="{faGithub}" /></a>
+            <a href="https://github.com/popcateum" target="_blank"><Fa icon="{faGithub}" /></a>
           </li>
           <li class="sns-icon">
-            <a href="/" target="_blank"><Fa icon="{faMedium}" /></a>
+            <a href="https://medium.com/@Oldpopcatbastards" target="_blank"><Fa icon="{faMedium}" /></a>
           </li>
         </ul>
         <div class="footer-content">

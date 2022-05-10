@@ -9,6 +9,7 @@
 <style lang="scss">
   .text-moving-bar {
     background-color: #edbdf4;
+    color: #C4F4BD;
     width: 100%;
     height: 80px;
     display: flex;
@@ -24,6 +25,7 @@
   @media screen and (max-width: 1280px) {
     .text-moving-bar {
       background-color: #edbdf4;
+      color: #C4F4BD;
       width: 100%;
       height: 50px;
       display: flex;
@@ -40,6 +42,7 @@
   @media screen and (max-width: 768px) {
     .text-moving-bar {
       background-color: #edbdf4;
+      color: #C4F4BD;
       width: 100%;
       height: 40px;
       display: flex;
