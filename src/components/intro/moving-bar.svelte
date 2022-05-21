@@ -3,7 +3,7 @@
 </script>
 
 <div class="text-moving-bar">
-  <Marquee content="OLD POPCAT BASTARDS &nbsp; &nbsp; &nbsp;" />
+  <Marquee content="OLD POPCAT BASTERDS &nbsp; &nbsp; &nbsp;" />
 </div>
 
 <style lang="scss">

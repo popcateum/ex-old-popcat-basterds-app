@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Saos from 'saos'
   let isMouseOver = true
 
   function popcatImageupdate() {
@@ -8,15 +9,23 @@
 
 <div class="wrap">
   <div class="title-wrap">
-    <div class="middle-title">Do you want to be</div>
-    <div class="middle-title-color">Old Popcat Bastard?</div>
-    <div class="middle-title">Here are the rules.</div>
+    <Saos animation="{'typing 3.5s steps(40, end)'}">
+      <div class="middle-title">Do you want to be</div>
+      <div class="middle-title-color">Old Popcat Bastard?</div>
+      <div class="middle-title">Here are the rules.</div>
+    </Saos>
   </div>
-
+  <!-- animation: typing 3.5s steps(40, end); -->
   <div class="title-wrap-mobile">
-    <div class="middle-title">Do you <br /> want to be</div>
-    <div class="middle-title-color">Old Popcat <br /> Bastard?</div>
-    <div class="middle-title">Here are <br /> the rules.</div>
+    <Saos animation="{'typing 3.5s steps(40, end)'}">
+      <div class="middle-title">Do you <br /> want to be</div>
+    </Saos>
+    <Saos animation="{'typing 3.5s steps(40, end)'}">
+      <div class="middle-title-color">Old Popcat <br /> Bastard?</div>
+    </Saos>
+    <Saos animation="{'typing 3.5s steps(40, end)'}">
+      <div class="middle-title">Here are <br /> the rules.</div>
+    </Saos>
   </div>
 
   <div class="content-wrap">
@@ -27,31 +36,32 @@
         <img src="images/laser2.png" alt="popcat" on:mouseout="{popcatImageupdate}" />
       {/if}
     </div>
-
-    <div class="red-box">
-      <div class="inner-box">
-        <div class="inner-wrap">
-          <div class="inner-title">RULE No.1</div>
-          <div class="inner-content">
-            According to your wallet age, the NFT that you can mint is different. More older it is, more valuable
+    <Saos animation="{'scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both'}">
+      <div class="red-box">
+        <div class="inner-box">
+          <div class="inner-wrap">
+            <div class="inner-title">RULE No.1</div>
+            <div class="inner-content">
+              According to your wallet age, the NFT that you can mint is different. More older it is, more valuable
+            </div>
           </div>
-        </div>
-        <div class="inner-wrap">
-          <div class="inner-title">RULE No.2</div>
-          <div class="inner-content">Old Popcat Bastards NFT holders will receive POP coins soon.</div>
-        </div>
-        <div class="inner-wrap">
-          <div class="inner-title">RULE No.3</div>
-          <div class="inner-content">You can only mint 2 NFTs with one wallet.</div>
-        </div>
-        <div class="inner-wrap">
-          <div class="inner-title">RULE No.4</div>
-          <div class="inner-content">
-            Minting Old Popcat Bastards NFT is free, but you need to send 0.01ETH grant to OBP dev.
+          <div class="inner-wrap">
+            <div class="inner-title">RULE No.2</div>
+            <div class="inner-content">Old Popcat Basterds NFT holders will receive POP coins soon.</div>
+          </div>
+          <div class="inner-wrap">
+            <div class="inner-title">RULE No.3</div>
+            <div class="inner-content">You can only mint 2 NFTs with one wallet.</div>
+          </div>
+          <div class="inner-wrap">
+            <div class="inner-title">RULE No.4</div>
+            <div class="inner-content">
+              Minting Old Popcat Basterds NFT is free, but you need to send 0.01ETH grant to OBP dev.
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Saos>
 
     <div class="button-wrap">
       <button class="normal-button">Mint NFT</button>
@@ -61,6 +71,37 @@
 </div>
 
 <style lang="scss">
+  @keyframes -global-scale-in-center {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes -global-title {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+
+    to {
+      width: 100%;
+    }
+  }
   .title-wrap-mobile {
     display: none;
     flex-direction: column;
@@ -127,13 +168,16 @@
     height: 440px;
   }
   .red-box {
-    background: #8e0e0c;
-    border: 2px solid #b7b9af;
+    background: #c4c4c4;
+    border: 2px solid #000000;
     box-sizing: border-box;
+    color: black;
+    box-shadow: 10px 10px #000;
+    /* animation: fadeInUp 1s; */
   }
 
   .inner-box {
-    border: 2px solid #e9cdd0;
+    border: 2px solid #000000;
     box-sizing: border-box;
   }
 
@@ -174,13 +218,10 @@
       }
     }
     .red-box {
-      background: #8e0e0c;
-      border: 2px solid #b7b9af;
       box-sizing: border-box;
     }
 
     .inner-box {
-      border: 2px solid #e9cdd0;
       box-sizing: border-box;
     }
   }
@@ -255,13 +296,10 @@
       }
     }
     .red-box {
-      background: #8e0e0c;
-      border: 2px solid #b7b9af;
       box-sizing: border-box;
     }
 
     .inner-box {
-      border: 2px solid #e9cdd0;
       box-sizing: border-box;
     }
   }

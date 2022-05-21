@@ -13,7 +13,7 @@
   <div class="header-logo">
     <a href="/" class="header-logo-link">
       <img src="/images/oldpopcat.gif" alt="logo" class="header-logo-img" />
-      <div class="header-logo-title">OLD POPCAT BASTARDS</div>
+      <div class="header-logo-title">OLD POPCAT BASTERDS</div>
     </a>
   </div>
   <div class="header-menu">

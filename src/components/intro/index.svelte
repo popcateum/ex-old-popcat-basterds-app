@@ -42,11 +42,11 @@
 </div>
 
 <div class="intro-wrap">
-  <div class="title">Old Popcat Bastards</div>
+  <div class="title">Old Popcat Basterds</div>
 </div>
 
 <div class="intro-wrap-mobile">
-  <div class="title">Old <br /> Popcat<br /> Bastards</div>
+  <div class="title">Old <br /> Popcat<br /> Basterds</div>
 </div>
 
 <div class="sub-text-two">Powered by Popcateum</div>
@@ -59,7 +59,7 @@
     <br />
     According to your wallet age, you can mint priviledged NFT.
     <br />
-    Are you ready to prove out yourself through Old Popcat Bastards NFT ?
+    Are you ready to prove out yourself through Old Popcat Basterds NFT ?
   </div>
 
   <div class="button-wrap">

@@ -12,7 +12,7 @@
       </div>
       <div class="footer-content">
         History on blockchain says a lot of things. <br /> Your wallet history tells a lot about yourself.<br /> With
-        your wallet, you can prove out yourself. <br />That’s the spirit of Web3.0. <br />Old Popcat Bastards want to
+        your wallet, you can prove out yourself. <br />That’s the spirit of Web3.0. <br />Old Popcat Basterds want to
         make people know this.
       </div>
     </div>

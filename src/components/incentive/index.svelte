@@ -1,45 +1,53 @@
 <script lang="ts">
+  import Saos from 'saos'
 </script>
 
 <div class="wrap">
   <div class="title-wrap">
-    <div class="middle-title-color">INCENTIVES AND ROADMAP</div>
+    <Saos animation="{'typing 3.5s steps(40, end)'}">
+      <div class="middle-title-color">INCENTIVES AND ROADMAP</div>
+    </Saos>
   </div>
 
   <div class="title-wrap-mobile">
-    <div class="middle-title-color">INCENTIVES <br /> AND <br /> ROADMAP</div>
+    <Saos animation="{'typing 3.5s steps(40, end)'}">
+      <div class="middle-title-color">INCENTIVES <br /> AND <br /> ROADMAP</div>
+    </Saos>
   </div>
 
-  <div class="content-wrap">
-    <dib class="window-box">
-      <div class="window-bar">
-        <div class="window-close">
-          <div class="x-box">x</div>
+  <Saos animation="{'scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both'}">
+    <div class="content-wrap">
+      <dib class="window-box">
+        <div class="window-bar">
+          <div class="window-close">
+            <div class="x-box">x</div>
+          </div>
         </div>
-      </div>
-      <div class="window-content">
-        <div class="content-paragraph">
-          <span class="red-sentence">There are not many incentives and specific roadmap.</span> We will do what you ask us
-          to do. Or if you have something that you want to do, then just do it by yourself as you want.
+        <div class="window-content">
+          <div class="content-paragraph">
+            <span class="red-sentence">There are not many incentives and specific roadmap.</span> We will do what you ask
+            us to do. Or if you have something that you want to do, then just do it by yourself as you want.
+          </div>
+          <div class="content-paragraph">
+            Maybe you can brag your Old Popcat Basterds NFTs to other people. Owning an OPB NFT will tell a lot about
+            yourself.
+          </div>
+          <div class="content-paragraph">
+            <span class="red-sentence">OPB NFT holders will receive POP coin airdrops in the future.</span> POP coin is
+            native coin of Popcateum meme blockchain.
+            <span class="blue-sentence">But it has no exchange value yet.</span>
+            We even don’t know if it will have or not.
+          </div>
+          <div class="content-paragraph">
+            Anyway, OPB NFT holders will be able to participate in the exclusive community of Popcateum.
+          </div>
+          <div class="content-paragraph">
+            If this project continues, your NFT image will be upgraded as your Popcat is getting older.
+          </div>
         </div>
-        <div class="content-paragraph">
-          Maybe you can brag your Old Popcat Bastards NFTs to other people. Owning an OPB NFT will tell a lot about
-          yourself.
-        </div>
-        <div class="content-paragraph">
-          <span class="red-sentence">OPB NFT holders will receive POP coin airdrops in the future.</span> POP coin is
-          native coin of Popcateum meme blockchain. <span class="blue-sentence">But it has no exchange value yet.</span>
-          We even don’t know if it will have or not.
-        </div>
-        <div class="content-paragraph">
-          Anyway, OPB NFT holders will be able to participate in the exclusive community of Popcateum.
-        </div>
-        <div class="content-paragraph">
-          If this project continues, your NFT image will be upgraded as your Popcat is getting older.
-        </div>
-      </div>
-    </dib>
-  </div>
+      </dib>
+    </div>
+  </Saos>
 </div>
 
 <style lang="scss">
