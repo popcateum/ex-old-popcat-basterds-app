@@ -22,6 +22,46 @@
   font-family: "Arcade";
   src: url("../fonts/Arcade Regular.ttf");
 }
+@-webkit-keyframes -global-scale-in-center {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes -global-scale-in-center {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
 html body {
   font-family: "Kongtext";
   width: 100%;
@@ -52,6 +92,12 @@ html body {
   user-select: none;
 }
 
+.normal-button:active {
+  color: white;
+  background-color: black;
+  box-shadow: 0px 0px #000;
+}
+
 .wallet-button {
   background-color: #EDBDF4;
   box-shadow: 8px 8px #000;
@@ -63,6 +109,12 @@ html body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.wallet-button:active {
+  color: white;
+  background-color: black;
+  box-shadow: 0px 0px #000;
 }
 
 .wrap {
@@ -83,6 +135,27 @@ html body {
   margin-bottom: 30px;
 }
 
+@-webkit-keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
 .title-wrap-mobile {
   display: none;
 }
@@ -98,8 +171,17 @@ html body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  white-space: nowrap;
 }
 
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 .middle-title-color {
   font-family: "Karmatic Arcade";
   font-style: normal;
@@ -111,6 +193,7 @@ html body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  white-space: nowrap;
 }
 
 .window-box {
