@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="window-content">
-        <div>
+        <div class="image-wrap">
           <img src="images/eth.png" alt="eth" />
         </div>
         <div class="content-paragraph">
@@ -45,6 +45,7 @@
     background: rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 100vh;
+    box-sizing: border-box;
   }
 
   .window-content {
@@ -61,6 +62,15 @@
   @media screen and (max-width: 768px) {
     .content-paragraph {
       width: 80%;
+    }
+
+    .image-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      img {
+        width: 50%;
+      }
     }
   }
 </style>
