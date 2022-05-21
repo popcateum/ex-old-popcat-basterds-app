@@ -6,13 +6,13 @@
 
 <div class="wrap">
   <div class="title-wrap">
-    <Saos animation="{'typing 3.5s steps(40, end)'}">
+    <Saos animation="{'typing 1.5s steps(40, end)'}">
       <div class="middle-title-color">ROADMAP</div>
     </Saos>
   </div>
 
   <div class="title-wrap-mobile">
-    <Saos animation="{'typing 3.5s steps(40, end)'}">
+    <Saos animation="{'typing 1.5s steps(40, end)'}">
       <div class="middle-title-color">ROADMAP</div>
     </Saos>
   </div>
@@ -40,6 +40,13 @@
     <div class="roadmap-sentence">
       3. If you are not satisfied with the old popcat images, we will make users be able to change and customize their
       popcat images. You might have to pay Pop coins to do this.
+    </div>
+    <div class="roadmap-divide">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
+    <div class="roadmap-divide-tablet">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
+    <div class="roadmap-divide-mobile">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
+    <div class="roadmap-sentence">
+      4. Old Popcat image will be able to contain “ENS” domain name on its image if you want. It means Old popcat image
+      will be used as a cover image for ENS.
     </div>
     <div class="roadmap-divide">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-divide-tablet">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>

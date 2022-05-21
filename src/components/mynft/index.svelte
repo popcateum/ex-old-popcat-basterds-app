@@ -2,20 +2,23 @@
   import Saos from 'saos'
   import NftList from './nft-list.svelte'
   import Twitter from './twitter.svelte'
+  import NoNFT from './no-nft.svelte'
 </script>
 
 <div class="wrap" id="my-nft">
   <div class="title-wrap">
-    <Saos animation="{'typing 3.5s steps(40, end)'}">
+    <Saos animation="{'typing 1.5s steps(40, end)'}">
       <div class="middle-title-color">My NFT</div>
     </Saos>
   </div>
 
   <div class="title-wrap-mobile">
-    <Saos animation="{'typing 3.5s steps(40, end)'}">
+    <Saos animation="{'typing 1.5s steps(40, end)'}">
       <div class="middle-title-color">My NFT</div>
     </Saos>
   </div>
+
+  <NoNFT />
 
   <div class="content-wrap">
     <NftList />

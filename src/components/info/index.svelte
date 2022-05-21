@@ -11,7 +11,7 @@
   const infoData: Array<Info> = [
     {
       nftImage: './images/2015.png',
-      tier: 'Top 0% ~ 0.1%',
+      tier: 'Top 0% ~ 0.0124%',
       year: '2015',
       title: 'Legendary Popcat',
       infoContent:
@@ -19,7 +19,7 @@
     },
     {
       nftImage: './images/2016.png',
-      tier: 'Top 0.1% ~ 2.56%',
+      tier: 'Top 0.0124% ~ 0.4079%',
       year: '2016',
       title: 'GOAT POPCAT',
       infoContent:
@@ -27,7 +27,7 @@
     },
     {
       nftImage: './images/2017.png',
-      tier: 'Top 2.56% ~ 12.15%',
+      tier: 'Top 0.4079% ~ 9.2262%',
       year: '2017',
       title: 'Grand Master Popcat',
       infoContent:
@@ -35,7 +35,7 @@
     },
     {
       nftImage: './images/2018.png',
-      tier: 'Top 12.15% ~ 19.67%',
+      tier: 'Top 9.2262% ~ 28.2553%',
       year: '2018',
       title: 'Master Popcat',
       infoContent:
@@ -43,7 +43,7 @@
     },
     {
       nftImage: './images/2019.png',
-      tier: 'Top 19.67% ~ 32.15%',
+      tier: 'Top 28.2553% ~ 42.4132%',
       year: '2019',
       title: 'Padawan Popcat',
       infoContent:
@@ -51,7 +51,7 @@
     },
     {
       nftImage: './images/2020.png',
-      tier: 'Top 32.15% ~ 52.55%',
+      tier: 'Top 42.4132% ~ 64.0235%',
       year: '2020',
       title: 'Youngling Popcat',
       infoContent:
@@ -59,7 +59,7 @@
     },
     {
       nftImage: './images/2021.png',
-      tier: 'Top 52.55% ~ 63.18%',
+      tier: 'Top 64.0235% ~ 92.4565%',
       year: '2021',
       title: 'Kitten Popcat',
       infoContent:
@@ -67,7 +67,7 @@
     },
     {
       nftImage: './images/2022.png',
-      tier: 'Top 63.18% ~ 100%',
+      tier: 'Top 92.4565% ~ 100%',
       year: '2022',
       title: 'N00b Popcat',
       infoContent:

@@ -1,6 +1,26 @@
 <script lang="ts">
   import Saos from 'saos'
+
+  let modalState: boolean = false
 </script>
+
+{#if modalState}
+  <div class="modal">
+    <div class="window-box">
+      <div class="window-bar">
+        <div class="window-close">
+          <div class="x-box" on:click="{() => (modalState = false)}">x</div>
+        </div>
+      </div>
+      <div class="window-content">
+        <div class="content-paragraph">It was not a button actually. <br /> Sorry, you’re fooled.</div>
+        <div style="display: flex; justify-content: center;">
+          <button class="normal-button" on:click="{() => (modalState = false)}"> close </button>
+        </div>
+      </div>
+    </div>
+  </div>
+{/if}
 
 <div class="wrap">
   <div class="title-wrap">
@@ -17,10 +37,10 @@
 
   <Saos animation="{'scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both'}">
     <div class="content-wrap">
-      <dib class="window-box">
+      <div class="window-box">
         <div class="window-bar">
           <div class="window-close">
-            <div class="x-box">x</div>
+            <div class="x-box" on:click="{() => (modalState = true)}">x</div>
           </div>
         </div>
         <div class="window-content">
@@ -45,12 +65,24 @@
             If this project continues, your NFT image will be upgraded as your Popcat is getting older.
           </div>
         </div>
-      </dib>
+      </div>
     </div>
   </Saos>
 </div>
 
 <style lang="scss">
+  .modal {
+    z-index: 100;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100vh;
+  }
   .title-wrap-mobile {
     display: none;
   }

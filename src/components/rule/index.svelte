@@ -1,6 +1,8 @@
 <script lang="ts">
   import Saos from 'saos'
+  import Mint from '@/components/mint/index.svelte'
   let isMouseOver = true
+  let modalState: boolean = false
 
   function popcatImageupdate() {
     isMouseOver = !isMouseOver
@@ -64,11 +66,13 @@
     </Saos>
 
     <div class="button-wrap">
-      <button class="normal-button">Mint NFT</button>
-      <button class="normal-button">Opensea</button>
+      <button class="normal-button" on:click="{() => (modalState = !modalState)}">Mint NFT</button>
+      <button class="normal-button" on:click="{() => window.open('https://opensea.io/')}">Opensea</button>
     </div>
   </div>
 </div>
+
+<Mint modalState="{modalState}" on:click="{() => (modalState = !modalState)}" />
 
 <style lang="scss">
   @keyframes -global-scale-in-center {
