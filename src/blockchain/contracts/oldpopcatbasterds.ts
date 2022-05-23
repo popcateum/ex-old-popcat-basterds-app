@@ -1,8 +1,8 @@
 import { provider } from '../chain/chain';
 import { ethers, Contract } from 'ethers';
-import ERC721AbiJSON from '../abi/ERC721.json';
+import ERC721AbiJSON from '../abi/OldPopcatBasterds.json';
 
-const opbCA = '0x1a92f7381b9f03921564a437210bb9396471050c';
+const opbCA = '0x7150bFb3affd8c0c81380Ba45b399d34DC5C8892';
 const opbABI: any = ERC721AbiJSON;
 
 async function balanceOf(address: string) {

@@ -33,12 +33,16 @@
   async function connect() {
     await web3ModalConnect()
     await getInstance()
-    await getProvider()
+    const provider = await getProvider()
     await getSigner()
     $myAddress = await getAddress()
     $myAddressShort = await getShortAddress()
     console.log($myAddress)
     const connectSt = await connectState()
+    const bn = await provider.getBlockNumber()
+
+    console.log('bn', bn)
+
     console.log(connectSt)
     $isConnect = true
 
@@ -59,14 +63,14 @@
       //   method: 'get',
       //   url: `https://localhost/${$myAddress}`
       // })
-      // const wlTicket = await axios({
-      //   method: 'get',
-      //   url: `localhost:3330/whitelist/ticket?address=${$myAddress}`
-      // })
-      $myYear = '2016'
-      // $myYear = wlTicket.data.year
-      // $myTicketHash = wlTicket.data.ticketHash
-      // $myTicketSignature = wlTicket.data.ticketSignature
+      const wlTicket = await axios({
+        method: 'get',
+        url: `http://localhost:3330/whitelist/ticket?address=${$myAddress}`
+      })
+      // $myYear = '2016'
+      $myYear = wlTicket.data.year
+      $myTicketHash = wlTicket.data.ticketHash
+      $myTicketSignature = wlTicket.data.ticketSignature
     } catch (error) {
       console.log(error)
     }

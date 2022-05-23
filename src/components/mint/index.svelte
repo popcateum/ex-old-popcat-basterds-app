@@ -1,12 +1,17 @@
 <script lang="ts">
-  import { isConnect, myYear, myAddressPercent, claimablePopcat } from '@/stores'
-  import { testFunc } from '@/blockchain/contracts/sale'
+  import { isConnect, myYear, myAddressPercent, claimablePopcat, myTicketHash, myTicketSignature } from '@/stores'
+  import { mint } from '@/blockchain/contracts/sale'
 
   export let modalState: boolean
 
-  async function mint() {
-    await testFunc('0xca027Fe02ff3aEa8dB89Aeb8aB2a5d08ceE3ddb8')
-    alert('mint end')
+  async function saleMint() {
+    try {
+      await mint($myYear, $myTicketHash, $myTicketSignature)
+      alert('mint end')
+    } catch (e) {
+      console.log(e);
+      alert('mint error')
+    }
   }
 </script>
 
@@ -31,7 +36,7 @@
             You can mint <span class="red-sentence">{$claimablePopcat}</span>.
           </div>
           <div>
-            <button class="normal-button" on:click="{mint}"> Mint </button>
+            <button class="normal-button" on:click="{saleMint}"> Mint </button>
           </div>
         </div>
       </div>

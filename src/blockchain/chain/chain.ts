@@ -17,9 +17,11 @@ async function web3ModalConnect() {
       package: WalletConnectProvider,
       options: {
         rpc: {
-          1: "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+          // 1: "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+          1213: 'https://dataseed.popcateum.org/'
         },
         // network: 'ethereum'
+        network: 'popcateum'
       }
     }
   }
@@ -78,12 +80,6 @@ function chainChanged(): void {
 
 async function connectState() {
   return web3Modal.cachedProvider
-}
-
-async function testTransaction(ca: any, abi: any, signer: any, myadr: any) {
-  const contract = new ethers.Contract(ca, abi, signer)
-  const myPaxBalance = await contract.balanceOf(myadr)
-  return ethers.utils.formatEther(myPaxBalance)
 }
 
 // async function addChain() {
