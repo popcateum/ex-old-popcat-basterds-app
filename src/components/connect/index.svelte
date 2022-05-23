@@ -1,5 +1,17 @@
 <script lang="ts">
-  import { isConnect, myAddress, myAddressShort } from '@/stores/index'
+  import axios from 'axios'
+  import {
+    isConnect,
+    myAddress,
+    myAddressShort,
+    myYear,
+    myTicketHash,
+    myTicketSignature,
+    myAddressPercent,
+    claimablePopcat,
+    myBalance,
+    myNftImages
+  } from '@/stores/index'
   import {
     web3ModalConnect,
     getInstance,
@@ -12,6 +24,7 @@
     connectState,
     disconnect
   } from '@/blockchain/chain/chain'
+  import { balanceOf, tokenOfOwnerByIndex, tokenURI } from '@/blockchain/contracts/oldpopcatbasterds'
   import Fa from 'svelte-fa'
   import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
@@ -19,19 +32,105 @@
 
   async function connect() {
     await web3ModalConnect()
-    const instance = await getInstance()
-    const provider = await getProvider()
-    const signer = await getSigner()
+    await getInstance()
+    await getProvider()
+    await getSigner()
     $myAddress = await getAddress()
     $myAddressShort = await getShortAddress()
-    // console.log(signer)
     console.log($myAddress)
     const connectSt = await connectState()
     console.log(connectSt)
+    $isConnect = true
 
+    await setAddressData()
+    setMyAddressPercent()
+
+    $myBalance = await balanceOf($myAddress)
+    if ($myBalance > 0) {
+      await getMyNftImages()
+    }
     accountsChanged()
     chainChanged()
-    $isConnect = true
+  }
+
+  async function setAddressData() {
+    try {
+      // const wlInfo = await axios({
+      //   method: 'get',
+      //   url: `https://localhost/${$myAddress}`
+      // })
+      // const wlTicket = await axios({
+      //   method: 'get',
+      //   url: `localhost:3330/whitelist/ticket?address=${$myAddress}`
+      // })
+      $myYear = '2016'
+      // $myYear = wlTicket.data.year
+      // $myTicketHash = wlTicket.data.ticketHash
+      // $myTicketSignature = wlTicket.data.ticketSignature
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async function getMyNftImages() {
+    const nftList = []
+    const imageList = []
+    for (let i = 0; i < $myBalance; i++) {
+      const tokenId = await tokenOfOwnerByIndex($myAddress, i)
+      nftList.push(tokenId)
+    }
+    for (let i = 0; i < nftList.length; i++) {
+      const metadataUri = getTokenURI(await tokenURI(nftList[i]))
+      const data = await axios({
+        method: 'get',
+        url: `${metadataUri}`
+      })
+      imageList.push({ img: getTokenURI(data.data.image) })
+    }
+
+    $myNftImages = imageList
+  }
+
+  function getTokenURI(uri: string) {
+    const IPFS_GATEWAY = 'https://ipfs.io/ipfs/'
+    if (uri.includes('://')) {
+      const uriProtocol = uri.split('://')
+      if (uriProtocol[0] === 'ipfs') {
+        uri = `${IPFS_GATEWAY}${uriProtocol[1]}`
+      }
+      return uri
+    }
+  }
+
+  function setMyAddressPercent() {
+    if ($myYear === '2015') {
+      $myAddressPercent = '0.0124%'
+      $claimablePopcat = 'Legendary Popcat'
+    } else if ($myYear === '2016') {
+      $myAddressPercent = '0.4079%'
+      $claimablePopcat = 'GOAT POPCAT'
+    } else if ($myYear === '2017') {
+      $myAddressPercent = '9.2262%'
+      $claimablePopcat = 'Grand Master Popcat'
+    } else if ($myYear === '2018') {
+      $myAddressPercent = '28.2553%'
+      $claimablePopcat = 'Master Popcat'
+    } else if ($myYear === '2019') {
+      $myAddressPercent = '42.4132%'
+      $claimablePopcat = 'Padawan Popcat'
+    } else if ($myYear === '2020') {
+      $myAddressPercent = '64.0235%'
+      $claimablePopcat = 'Youngling Popcat'
+    } else if ($myYear === '2021') {
+      $myAddressPercent = '92.4565%'
+      $claimablePopcat = 'Kitten Popcat'
+    } else if ($myYear === '2022') {
+      $myAddressPercent = '100%'
+      $claimablePopcat = 'N00b Popcat'
+    } else {
+      $myAddressPercent = 'None'
+      $claimablePopcat = 'None'
+    }
   }
 </script>
 
@@ -42,14 +141,14 @@
         <div class="address-wrap" on:click="{() => (isOpen = !isOpen)}">
           <div class="address">{$myAddressShort}</div>
           <div class="icon">
-            <Fa icon="{faAngleDown}" size="{'1x'}" />
+            <Fa icon="{faAngleUp}" size="{'1x'}" />
           </div>
         </div>
         <hr />
         <div class="content">
-          You wallet was born in <span class="red-sentence">2016</span>. <br />
-          Top <span class="red-sentence">25.12%</span> from total wallets.<br />
-          Now you have <span class="red-sentence">0</span> OPB NFT.
+          You wallet was born in <span class="red-sentence">{$myYear}</span>. <br />
+          Top <span class="red-sentence">{$myAddressPercent}</span> from total wallets.<br />
+          Now you have <span class="red-sentence">{$myBalance}</span> OPB NFT.
         </div>
         <hr />
         <div class="sign-out" on:click="{disconnect}">Sign-out</div>

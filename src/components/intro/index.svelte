@@ -424,7 +424,7 @@
 
     .absolut-image-3 {
       position: absolute;
-      right: -200px;
+      right: -207px;
       top: 60px;
       z-index: -1;
       transform: rotate(-51.78deg);

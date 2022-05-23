@@ -4,10 +4,10 @@
 </script>
 
 <div class="explain">
-  You have no Old Popcat Bastards NFT.
+  You have no Old Popcat Basterds NFT.
   <br />
   <br />
-  If you want to be a Bastard, you need to get one.
+  If you want to be a Basterd, you need to get one.
 </div>
 <div class="button-wrap">
   <button class="normal-button" on:click="{() => (modalState = !modalState)}">Mint NFT</button>

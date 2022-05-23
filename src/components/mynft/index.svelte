@@ -3,6 +3,7 @@
   import NftList from './nft-list.svelte'
   import Twitter from './twitter.svelte'
   import NoNFT from './no-nft.svelte'
+  import { myBalance } from '@/stores'
 </script>
 
 <div class="wrap" id="my-nft">
@@ -18,10 +19,12 @@
     </Saos>
   </div>
 
-  <NoNFT />
-
-  <div class="content-wrap">
-    <NftList />
-    <Twitter />
-  </div>
+  {#if $myBalance > 0}
+    <div class="content-wrap">
+      <NftList />
+      <Twitter />
+    </div>
+  {:else}
+    <NoNFT />
+  {/if}
 </div>

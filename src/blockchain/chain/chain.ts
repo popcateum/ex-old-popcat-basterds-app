@@ -106,5 +106,5 @@ async function testTransaction(ca: any, abi: any, signer: any, myadr: any) {
 // }
 
 export {
-  web3ModalConnect, getInstance, getProvider, getSigner, disconnect, getAddress, getShortAddress, getChainId, accountsChanged, chainChanged, connectState
+  web3ModalConnect, getInstance, getProvider, getSigner, disconnect, getAddress, getShortAddress, getChainId, accountsChanged, chainChanged, connectState, provider, signer
 }

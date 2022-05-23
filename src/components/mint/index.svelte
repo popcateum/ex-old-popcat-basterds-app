@@ -1,9 +1,11 @@
 <script lang="ts">
-  import { isConnect } from '@/stores'
+  import { isConnect, myYear, myAddressPercent, claimablePopcat } from '@/stores'
+  import { testFunc } from '@/blockchain/contracts/sale'
 
   export let modalState: boolean
 
   async function mint() {
+    await testFunc('0xca027Fe02ff3aEa8dB89Aeb8aB2a5d08ceE3ddb8')
     alert('mint end')
   }
 </script>
@@ -22,11 +24,11 @@
             <img src="images/eth.png" alt="eth" />
           </div>
           <div class="content-paragraph">
-            Your ETHEREUM wallet was born in <span class="red-sentence">2018</span>.
+            Your ETHEREUM wallet was born in <span class="red-sentence">{$myYear}</span>.
             <br />
-            Your wallet age is top <span class="red-sentence">62.51%</span> from total Ethereum wallets.
+            Your wallet age is top <span class="red-sentence">{$myAddressPercent}</span> from total Ethereum wallets.
             <br />
-            You can mint <span class="red-sentence">Legendary Popcat</span>.
+            You can mint <span class="red-sentence">{$claimablePopcat}</span>.
           </div>
           <div>
             <button class="normal-button" on:click="{mint}"> Mint </button>
