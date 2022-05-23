@@ -1,22 +1,42 @@
 <script lang="ts">
+  import { ethers } from 'ethers'
+  import { Diamonds } from 'svelte-loading-spinners'
   import { isConnect, myYear, myAddressPercent, claimablePopcat, myTicketHash, myTicketSignature } from '@/stores'
   import { mint } from '@/blockchain/contracts/sale'
 
   export let modalState: boolean
 
+  let spinnerState = false
+  const PUBLICSALE_PRICE: any = ethers.utils.formatEther('10000000000000000')
+
   async function saleMint() {
+    let overrides = {
+      value: ethers.utils.parseEther(PUBLICSALE_PRICE)
+    }
     try {
-      await mint($myYear, $myTicketHash, $myTicketSignature)
+      setSpinner()
+      await mint($myYear, $myTicketHash, $myTicketSignature, overrides)
+      setSpinner()
       alert('mint end')
     } catch (e) {
-      console.log(e);
+      console.log(e)
+      setSpinner()
       alert('mint error')
     }
+  }
+
+  function setSpinner() {
+    spinnerState = !spinnerState
   }
 </script>
 
 {#if modalState}
   <div class="modal">
+    {#if spinnerState}
+      <div class="spiner">
+        <Diamonds size="60" color="#0000aa" unit="px" duration="1s" />
+      </div>
+    {/if}
     {#if $isConnect}
       <div class="window-box">
         <div class="window-bar">
@@ -71,6 +91,19 @@
     width: 100%;
     height: 100vh;
     box-sizing: border-box;
+  }
+
+  .spiner {
+    z-index: 1000;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100vh;
   }
 
   .window-content {

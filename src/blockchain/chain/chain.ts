@@ -18,10 +18,10 @@ async function web3ModalConnect() {
       options: {
         rpc: {
           // 1: "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
-          1213: 'https://dataseed.popcateum.org/'
+          5: "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
         },
         // network: 'ethereum'
-        network: 'popcateum'
+        network: 'goerli'
       }
     }
   }

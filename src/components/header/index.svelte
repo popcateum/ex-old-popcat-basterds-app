@@ -1,7 +1,7 @@
 <script lang="ts">
   import Fa from 'svelte-fa'
   import { faBars } from '@fortawesome/free-solid-svg-icons'
-  import Menu from './Menu.svelte'
+  import Menu from '@/components/header/menu.svelte'
   import Connect from '@/components/connect/index.svelte'
 
   let toggleBtnActive = false
