@@ -10,7 +10,8 @@
     myAddressPercent,
     claimablePopcat,
     myBalance,
-    myNftImages
+    myNftImages,
+    myIsMinted
   } from '@/stores/index'
   import {
     web3ModalConnect,
@@ -25,6 +26,7 @@
     disconnect
   } from '@/blockchain/chain/chain'
   import { balanceOf, tokenOfOwnerByIndex, tokenURI } from '@/blockchain/contracts/oldpopcatbasterds'
+  import { isMinted } from '@/blockchain/contracts/sale'
   import Fa from 'svelte-fa'
   import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
@@ -45,7 +47,7 @@
 
     console.log(connectSt)
     $isConnect = true
-
+    // $myIsMinted = await isMinted($myAddress)
     await setAddressData()
     setMyAddressPercent()
 
@@ -64,18 +66,18 @@
       //   url: `https://localhost/${$myAddress}`
       // })
 
-      // const wlTicket = await axios({
-      //   method: 'get',
-      //   url: `http://3.39.243.30:3330/whitelist/ticket?address=${$myAddress}`
-      // })
+      const wlTicket = await axios({
+        method: 'get',
+        url: `http://localhost:3330/whitelist/ticket?address=${$myAddress}`
+      })
       // $myYear = '2016'
-      $myYear = '2021'
-      $myTicketHash = '0xeec77a89423b4557e548f321a3fe4fb814e95652277b17ee7c4c9ed64b32b9db'
-      $myTicketSignature =
-        '0x26a62510df01aa76d39f5d3ed14bcdcd5bcc730b10c95194006363f94d6f416e387fbcc5ddccece3fdbc908411a5414538f299080bb755f00dfd4237881ced741b'
-      // $myYear = wlTicket.data.year
-      // $myTicketHash = wlTicket.data.ticket_hash
-      // $myTicketSignature = wlTicket.data.ticket_signature
+      // $myYear = '2021'
+      // $myTicketHash = '0xeec77a89423b4557e548f321a3fe4fb814e95652277b17ee7c4c9ed64b32b9db'
+      // $myTicketSignature =
+      //   '0x26a62510df01aa76d39f5d3ed14bcdcd5bcc730b10c95194006363f94d6f416e387fbcc5ddccece3fdbc908411a5414538f299080bb755f00dfd4237881ced741b'
+      $myYear = wlTicket.data.year
+      $myTicketHash = wlTicket.data.ticket_hash
+      $myTicketSignature = wlTicket.data.ticket_signature
     } catch (error) {
       console.log(error)
     }

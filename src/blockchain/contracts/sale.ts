@@ -11,10 +11,11 @@ async function mint(createdAt: number, hash: string, signature: string, amount: 
   await tx.wait();
 }
 
-function isMinted(address) {
-  
+function isMinted(address: string) {
+  const sale: Contract = new ethers.Contract(saleCA, saleABI, provider);
+  return sale.isMinted(address);
 }
 
 export {
-  mint,
+  mint, isMinted
 }

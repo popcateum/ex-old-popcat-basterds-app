@@ -1,7 +1,15 @@
 <script lang="ts">
   import { ethers } from 'ethers'
   import { Diamonds } from 'svelte-loading-spinners'
-  import { isConnect, myYear, myAddressPercent, claimablePopcat, myTicketHash, myTicketSignature } from '@/stores'
+  import {
+    isConnect,
+    myYear,
+    myAddressPercent,
+    claimablePopcat,
+    myTicketHash,
+    myTicketSignature,
+    myIsMinted
+  } from '@/stores'
   import { mint } from '@/blockchain/contracts/sale'
 
   export let modalState: boolean
@@ -38,28 +46,44 @@
       </div>
     {/if}
     {#if $isConnect}
-      <div class="window-box">
-        <div class="window-bar">
-          <div class="window-close">
-            <div class="x-box" on:click>x</div>
+      {#if $myIsMinted}
+        <div class="window-box">
+          <div class="window-bar">
+            <div class="window-close">
+              <div class="x-box" on:click>x</div>
+            </div>
+          </div>
+          <div class="window-content">
+            <div class="content-paragraph">Your address is already minted.</div>
+            <div>
+              <button class="normal-button" on:click> close </button>
+            </div>
           </div>
         </div>
-        <div class="window-content">
-          <div class="image-wrap">
-            <img src="images/eth.png" alt="eth" />
+      {:else}
+        <div class="window-box">
+          <div class="window-bar">
+            <div class="window-close">
+              <div class="x-box" on:click>x</div>
+            </div>
           </div>
-          <div class="content-paragraph">
-            Your ETHEREUM wallet was born in <span class="red-sentence">{$myYear}</span>.
-            <br />
-            Your wallet age is top <span class="red-sentence">{$myAddressPercent}</span> from total Ethereum wallets.
-            <br />
-            You can mint <span class="red-sentence">{$claimablePopcat}</span>.
-          </div>
-          <div>
-            <button class="normal-button" on:click="{saleMint}"> Mint </button>
+          <div class="window-content">
+            <div class="image-wrap">
+              <img src="images/eth.png" alt="eth" />
+            </div>
+            <div class="content-paragraph">
+              Your ETHEREUM wallet was born in <span class="red-sentence">{$myYear}</span>.
+              <br />
+              Your wallet age is top <span class="red-sentence">{$myAddressPercent}</span> from total Ethereum wallets.
+              <br />
+              You can mint <span class="red-sentence">{$claimablePopcat}</span>.
+            </div>
+            <div>
+              <button class="normal-button" on:click="{saleMint}"> Mint </button>
+            </div>
           </div>
         </div>
-      </div>
+      {/if}
     {:else}
       <div class="window-box">
         <div class="window-bar">
