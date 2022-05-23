@@ -68,7 +68,7 @@
 
       const wlTicket = await axios({
         method: 'get',
-        url: `http://localhost:3330/whitelist/ticket?address=${$myAddress}`
+        url: `http://172.31.55.122:3330/whitelist/ticket?address=${$myAddress}`
       })
       // $myYear = '2016'
       // $myYear = '2021'
