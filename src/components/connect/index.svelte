@@ -11,7 +11,11 @@
     claimablePopcat,
     myBalance,
     myNftImages,
-    myIsMinted
+    myIsMinted,
+    myFirstTxHash,
+    myFirstTxTime,
+    myFirstTxBlcok,
+    myFirstTxHashShort
   } from '@/stores/index'
   import {
     web3ModalConnect,
@@ -59,27 +63,41 @@
     chainChanged()
   }
 
+  function getShortTx(tx: string) {
+    return `${tx.slice(0, 8)}...${tx.slice(-6)}`
+  }
+
   async function setAddressData() {
     try {
       // const wlInfo = await axios({
       //   method: 'get',
-      //   url: `https://localhost/${$myAddress}`
+      //   url: `http://3.39.243.30:3330/whitelist/info?address=${$myAddress}`
       // })
+      $myYear = 2021
+      $myFirstTxHash = '0xe5b1ef9aa6d4932422bb37bd78d23d0ae8246f74d282b815be7bf91d3d06b928'
+      $myFirstTxTime = '2021-12-30T13:16:34.000Z'
+      $myFirstTxBlcok = 13906910
+      $myFirstTxHashShort = getShortTx($myFirstTxHash)
 
-      const wlTicket = await axios({
-        method: 'get',
-        url: `http://3.39.243.30:3330/whitelist/ticket?address=${$myAddress}`
-      })
-      // $myYear = '2016'
+      // $myYear = wlInfo.data.myYear
+      // $myFirstTxHash = wlInfo.data.first_tx_hash
+      // $myFirstTxHashShort = getShortTx(wlInfo.data.first_tx_hash)
+      // $myFirstTxTime = wlInfo.data.first_tx_time
+      // $myFirstTxBlcok = wlInfo.data.first_tx_block
+
+      // const wlTicket = await axios({
+      //   method: 'get',
+      //   url: `http://3.39.243.30:3330/whitelist/ticket?address=${$myAddress}`
+      // })
       // $myYear = '2021'
       // $myTicketHash = '0xeec77a89423b4557e548f321a3fe4fb814e95652277b17ee7c4c9ed64b32b9db'
       // $myTicketSignature =
       //   '0x26a62510df01aa76d39f5d3ed14bcdcd5bcc730b10c95194006363f94d6f416e387fbcc5ddccece3fdbc908411a5414538f299080bb755f00dfd4237881ced741b'
-      $myYear = wlTicket.data.year
-      $myTicketHash = wlTicket.data.ticket_hash
-      $myTicketSignature = wlTicket.data.ticket_signature
-    } catch (error) {
-      console.log(error)
+      // $myYear = wlTicket.data.year
+      // $myTicketHash = wlTicket.data.ticket_hash
+      // $myTicketSignature = wlTicket.data.ticket_signature
+    } catch (e) {
+      console.log(e)
     }
   }
 
@@ -114,28 +132,28 @@
   }
 
   function setMyAddressPercent() {
-    if ($myYear === '2015') {
+    if ($myYear === 2015) {
       $myAddressPercent = '0.0124%'
       $claimablePopcat = 'Legendary Popcat'
-    } else if ($myYear === '2016') {
+    } else if ($myYear === 2016) {
       $myAddressPercent = '0.4079%'
       $claimablePopcat = 'GOAT POPCAT'
-    } else if ($myYear === '2017') {
+    } else if ($myYear === 2017) {
       $myAddressPercent = '9.2262%'
       $claimablePopcat = 'Grand Master Popcat'
-    } else if ($myYear === '2018') {
+    } else if ($myYear === 2018) {
       $myAddressPercent = '28.2553%'
       $claimablePopcat = 'Master Popcat'
-    } else if ($myYear === '2019') {
+    } else if ($myYear === 2019) {
       $myAddressPercent = '42.4132%'
       $claimablePopcat = 'Padawan Popcat'
-    } else if ($myYear === '2020') {
+    } else if ($myYear === 2020) {
       $myAddressPercent = '64.0235%'
       $claimablePopcat = 'Youngling Popcat'
-    } else if ($myYear === '2021') {
+    } else if ($myYear === 2021) {
       $myAddressPercent = '92.4565%'
       $claimablePopcat = 'Kitten Popcat'
-    } else if ($myYear === '2022') {
+    } else if ($myYear === 2022) {
       $myAddressPercent = '100%'
       $claimablePopcat = 'N00b Popcat'
     } else {

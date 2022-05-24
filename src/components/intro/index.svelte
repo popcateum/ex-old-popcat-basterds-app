@@ -1,8 +1,9 @@
 <script lang="ts">
   import MovingBar from './moving-bar.svelte'
-  import Connect from '@/components/connect/index.svelte'
+  import WalletCheck from './walleCheck.svelte'
 
   let isMouseOver = true
+  let modalState = false
 
   function popcatImageupdate() {
     isMouseOver = !isMouseOver
@@ -63,9 +64,11 @@
   </div>
 
   <div class="button-wrap">
-    <button class="normal-button"> check my wallet </button>
+    <button class="normal-button" on:click="{() => (modalState = !modalState)}"> check my wallet </button>
   </div>
 </div>
+
+<WalletCheck modalState="{modalState}" on:click="{() => (modalState = !modalState)}" />
 
 <MovingBar />
 
