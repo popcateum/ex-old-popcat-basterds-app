@@ -1,18 +1,5 @@
 <script lang="ts">
-  import { Diamonds } from 'svelte-loading-spinners'
-  import {
-    isConnect,
-    myYear,
-    myAddressPercent,
-    claimablePopcat,
-    myTicketHash,
-    myTicketSignature,
-    myIsMinted,
-    myFirstTxHash,
-    myFirstTxBlcok,
-    myFirstTxTime,
-    myFirstTxHashShort
-  } from '@/stores'
+  import { isConnect, myYear, myAddressPercent, myFirstTxHash, myFirstTxBlcok, myFirstTxHashShort } from '@/stores'
 
   export let modalState: boolean
 </script>
@@ -93,19 +80,6 @@
     box-sizing: border-box;
   }
 
-  .spiner {
-    z-index: 1000;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.6);
-    width: 100%;
-    height: 100vh;
-  }
-
   .window-content {
     display: flex;
     flex-direction: column;
@@ -120,15 +94,6 @@
   @media screen and (max-width: 768px) {
     .content-paragraph {
       width: 80%;
-    }
-
-    .image-wrap {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 10px;
-      img {
-        width: 50%;
-      }
     }
   }
 </style>
