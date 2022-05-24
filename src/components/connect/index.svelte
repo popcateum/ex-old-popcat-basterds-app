@@ -69,33 +69,21 @@
 
   async function setAddressData() {
     try {
-      // const wlInfo = await axios({
-      //   method: 'get',
-      //   url: `http://3.39.243.30:3330/whitelist/info?address=${$myAddress}`
-      // })
-      $myYear = 2021
-      $myFirstTxHash = '0xe5b1ef9aa6d4932422bb37bd78d23d0ae8246f74d282b815be7bf91d3d06b928'
-      $myFirstTxTime = '2021-12-30T13:16:34.000Z'
-      $myFirstTxBlcok = 13906910
-      $myFirstTxHashShort = getShortTx($myFirstTxHash)
+      const wlInfo = await axios({
+        method: 'get',
+        url: `http://3.39.243.30:3330/whitelist/info?address=${$myAddress}`
+      })
+      // $myYear = 2021
+      // $myFirstTxHash = '0xe5b1ef9aa6d4932422bb37bd78d23d0ae8246f74d282b815be7bf91d3d06b928'
+      // $myFirstTxTime = '2021-12-30T13:16:34.000Z'
+      // $myFirstTxBlcok = 13906910
+      // $myFirstTxHashShort = getShortTx($myFirstTxHash)
 
-      // $myYear = wlInfo.data.myYear
-      // $myFirstTxHash = wlInfo.data.first_tx_hash
-      // $myFirstTxHashShort = getShortTx(wlInfo.data.first_tx_hash)
-      // $myFirstTxTime = wlInfo.data.first_tx_time
-      // $myFirstTxBlcok = wlInfo.data.first_tx_block
-
-      // const wlTicket = await axios({
-      //   method: 'get',
-      //   url: `http://3.39.243.30:3330/whitelist/ticket?address=${$myAddress}`
-      // })
-      // $myYear = '2021'
-      // $myTicketHash = '0xeec77a89423b4557e548f321a3fe4fb814e95652277b17ee7c4c9ed64b32b9db'
-      // $myTicketSignature =
-      //   '0x26a62510df01aa76d39f5d3ed14bcdcd5bcc730b10c95194006363f94d6f416e387fbcc5ddccece3fdbc908411a5414538f299080bb755f00dfd4237881ced741b'
-      // $myYear = wlTicket.data.year
-      // $myTicketHash = wlTicket.data.ticket_hash
-      // $myTicketSignature = wlTicket.data.ticket_signature
+      $myYear = wlInfo.data.myYear
+      $myFirstTxHash = wlInfo.data.first_tx_hash
+      $myFirstTxHashShort = getShortTx(wlInfo.data.first_tx_hash)
+      $myFirstTxTime = wlInfo.data.first_tx_time
+      $myFirstTxBlcok = wlInfo.data.first_tx_block
     } catch (e) {
       console.log(e)
     }

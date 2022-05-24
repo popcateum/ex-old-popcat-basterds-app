@@ -8,9 +8,11 @@
     claimablePopcat,
     myTicketHash,
     myTicketSignature,
-    myIsMinted
+    myIsMinted,
+    myAddress
   } from '@/stores'
   import { mint } from '@/blockchain/contracts/sale'
+  import axios from 'axios'
 
   export let modalState: boolean
 
@@ -22,10 +24,25 @@
       value: ethers.utils.parseEther(PUBLICSALE_PRICE)
     }
     try {
+      const wlTicket = await axios({
+        method: 'get',
+        url: `http://3.39.243.30:3330/whitelist/ticket?address=${$myAddress}`
+      })
+      // $myYear = 2021
+      // $myTicketHash = '0xb63a9b700d2b2be658cca8852a8e06be080b1259e8e41d1fbbb020c7216db05d'
+      // $myTicketSignature =
+      //   '0xa155ff05b7ee2bdbabfec64e9fbbc0c5449bae00339d754a6f5599e45b940fa57bfa70c8ab1ed01f04f7a67867cfa06843c522eeda6868784ee016b4d0f409a31c'
+      $myYear = wlTicket.data.year
+      $myTicketHash = wlTicket.data.ticket_hash
+      $myTicketSignature = wlTicket.data.ticket_signature
+    } catch (e) {
+      console.log(e)
+    }
+    try {
       setSpinner()
       await mint($myYear, $myTicketHash, $myTicketSignature, overrides)
+      $myIsMinted = true
       setSpinner()
-      alert('mint end')
     } catch (e) {
       console.log(e)
       setSpinner()
@@ -46,7 +63,21 @@
       </div>
     {/if}
     {#if $isConnect}
-      {#if $myIsMinted}
+      {#if $myYear === 0}
+        <div class="window-box">
+          <div class="window-bar">
+            <div class="window-close">
+              <div class="x-box" on:click>x</div>
+            </div>
+          </div>
+          <div class="window-content">
+            <div class="content-paragraph">Your wallet is not in the snapshot.</div>
+            <div>
+              <button class="normal-button" on:click> close </button>
+            </div>
+          </div>
+        </div>
+      {:else if $myIsMinted}
         <div class="window-box">
           <div class="window-bar">
             <div class="window-close">
