@@ -62,7 +62,7 @@
     try {
       const wlInfo = await axios({
         method: 'get',
-        url: `http://3.39.243.30:3330/whitelist/info?address=${$myAddress}`
+        url: `https://api.oldpopcatbasterds.com/whitelist/info?address=${$myAddress}`
       })
       $myYear = wlInfo.data.year
       $myFirstTxHash = wlInfo.data.first_tx_hash
