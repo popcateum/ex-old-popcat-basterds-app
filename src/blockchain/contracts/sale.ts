@@ -13,7 +13,7 @@ async function mint(createdAt: number, hash: string, signature: string, amount: 
 
 function isMinted(address: string) {
   const sale: Contract = new ethers.Contract(saleCA, saleABI, provider);
-  return sale.isMinted(address);
+  return sale._isMinted(address);
 }
 
 export {
