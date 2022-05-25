@@ -122,7 +122,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 83%;
+    /* width: 83%; */
   }
 
   .nft-image {
@@ -169,7 +169,7 @@
   .info {
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
   }
 
