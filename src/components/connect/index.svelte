@@ -5,8 +5,6 @@
     myAddress,
     myAddressShort,
     myYear,
-    myTicketHash,
-    myTicketSignature,
     myAddressPercent,
     claimablePopcat,
     myBalance,
@@ -66,12 +64,6 @@
         method: 'get',
         url: `http://3.39.243.30:3330/whitelist/info?address=${$myAddress}`
       })
-      // $myYear = 2021
-      // $myFirstTxHash = '0xe5b1ef9aa6d4932422bb37bd78d23d0ae8246f74d282b815be7bf91d3d06b928'
-      // $myFirstTxTime = '2021-12-30T13:16:34.000Z'
-      // $myFirstTxBlcok = 13906910
-      // $myFirstTxHashShort = getShortTx($myFirstTxHash)
-      
       $myYear = wlInfo.data.year
       $myFirstTxHash = wlInfo.data.first_tx_hash
       $myFirstTxHashShort = getShortTx(wlInfo.data.first_tx_hash)
