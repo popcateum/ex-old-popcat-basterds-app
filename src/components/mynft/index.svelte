@@ -6,7 +6,9 @@
   import { myBalance } from '@/stores'
 </script>
 
-<div class="wrap" id="my-nft">
+<div id="my-nft" style="height: 60px;"></div>
+
+<div class="wrap">
   <div class="title-wrap">
     <Saos animation="{'typing 1.5s steps(40, end)'}">
       <div class="middle-title-color">My NFT</div>
