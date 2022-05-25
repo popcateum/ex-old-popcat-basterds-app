@@ -21,34 +21,34 @@
     <div class="roadmap-sentence">
       There are few more specific roadmap for Old Popcat Basterds. Here’s the roadmaps.
     </div>
-    <div class="roadmap-divide">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
+    <div class="roadmap-divide">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-divide-tablet">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-divide-mobile">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-sentence">
       1. Images of OPB NFT will be changed as time goes by. Popcats will be getting older.
     </div>
-    <div class="roadmap-divide">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
+    <div class="roadmap-divide">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-divide-tablet">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-divide-mobile">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-sentence">
       2. Now OPB NFT only includes the “Year” of the wallet creation date. We will update its wallet creation “Month”
       and “Date” in the future. It means the OPB NFT will have more interesting rarity by its creation history.
     </div>
-    <div class="roadmap-divide">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
+    <div class="roadmap-divide">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-divide-tablet">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-divide-mobile">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-sentence">
       3. If you are not satisfied with the old popcat images, we will make users be able to change and customize their
       popcat images. You might have to pay Pop coins to do this.
     </div>
-    <div class="roadmap-divide">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
+    <div class="roadmap-divide">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-divide-tablet">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-divide-mobile">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-sentence">
       4. Old Popcat image will be able to contain “ENS” domain name on its image if you want. It means Old popcat image
       will be used as a cover image for ENS.
     </div>
-    <div class="roadmap-divide">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
+    <div class="roadmap-divide">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-divide-tablet">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-divide-mobile">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</div>
     <div class="roadmap-dot">
@@ -123,7 +123,7 @@
     font-weight: 400;
     font-size: 10px;
     line-height: 16px;
-    transform: translate(-16.5%, -10%) scale(0.7);
+    transform: translate(-24%, -10%) scale(0.58);
     height: 200px;
   }
 
