@@ -9,13 +9,17 @@
     myTicketHash,
     myTicketSignature,
     myIsMinted,
-    myAddress
+    myAddress,
+    myNftImages,
+    myBalance
   } from '@/stores'
   import { mint } from '@/blockchain/contracts/sale'
   import axios from 'axios'
+  import { tokenOfOwnerByIndex, tokenURI } from '@/blockchain/contracts/oldpopcatbasterds'
 
   export let modalState: boolean
 
+  let mintSuccess = false
   let spinnerState = false
   const PUBLICSALE_PRICE: any = ethers.utils.formatEther('10000000000000000')
 
@@ -41,12 +45,44 @@
     try {
       setSpinner()
       await mint($myYear, $myTicketHash, $myTicketSignature, overrides)
-      $myIsMinted = true
+      mintSuccess = true
+      $myBalance = 1
+      await getMyNftImages()
       setSpinner()
     } catch (e) {
       console.log(e)
       setSpinner()
       alert('mint error')
+    }
+  }
+
+  async function getMyNftImages() {
+    const nftList = []
+    const imageList = []
+    for (let i = 0; i < $myBalance; i++) {
+      const tokenId = await tokenOfOwnerByIndex($myAddress, i)
+      nftList.push(tokenId)
+    }
+    for (let i = 0; i < nftList.length; i++) {
+      const metadataUri = getTokenURI(await tokenURI(nftList[i]))
+      const data = await axios({
+        method: 'get',
+        url: `${metadataUri}`
+      })
+      imageList.push({ img: getTokenURI(data.data.image) })
+    }
+
+    $myNftImages = imageList
+  }
+
+  function getTokenURI(uri: string) {
+    const IPFS_GATEWAY = 'https://ipfs.io/ipfs/'
+    if (uri.includes('://')) {
+      const uriProtocol = uri.split('://')
+      if (uriProtocol[0] === 'ipfs') {
+        uri = `${IPFS_GATEWAY}${uriProtocol[1]}`
+      }
+      return uri
     }
   }
 
@@ -86,6 +122,20 @@
           </div>
           <div class="window-content">
             <div class="content-paragraph">Your address is already minted.</div>
+            <div>
+              <button class="normal-button" on:click> close </button>
+            </div>
+          </div>
+        </div>
+      {:else if mintSuccess}
+        <div class="window-box">
+          <div class="window-bar">
+            <div class="window-close">
+              <div class="x-box" on:click>x</div>
+            </div>
+          </div>
+          <div class="window-content">
+            <div class="content-paragraph">Mint Success!!</div>
             <div>
               <button class="normal-button" on:click> close </button>
             </div>

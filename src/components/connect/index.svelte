@@ -51,7 +51,7 @@
 
     console.log(connectSt)
     $isConnect = true
-    // $myIsMinted = await isMinted($myAddress)
+    $myIsMinted = await isMinted($myAddress)
     await setAddressData()
     setMyAddressPercent()
 

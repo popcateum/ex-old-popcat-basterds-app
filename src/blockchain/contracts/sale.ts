@@ -2,7 +2,7 @@ import { signer, provider } from '../chain/chain';
 import { ethers, Contract } from 'ethers';
 import SaleAbiJSON from '../abi/Sale.json';
 
-const saleCA = '0xfc6920df22b7034e031d4e046644b86375e102fa';
+const saleCA = '0x306249A2D1505dEfdfcB90D606d0E50d0B0B0dEB';
 const saleABI: any = SaleAbiJSON;
 
 async function mint(createdAt: number, hash: string, signature: string, amount: any) {
