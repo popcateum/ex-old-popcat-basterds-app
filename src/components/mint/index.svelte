@@ -43,13 +43,13 @@
       await mint($myYear, $myTicketHash, $myTicketSignature, overrides)
       mintSuccess = true
       $myBalance = 1
-      await getMyNftImages()
       setSpinner()
     } catch (e) {
       console.log(e)
       setSpinner()
       alert('mint error')
     }
+    await getMyNftImages()
   }
 
   async function getMyNftImages() {
