@@ -78,12 +78,13 @@
       // $myFirstTxTime = '2021-12-30T13:16:34.000Z'
       // $myFirstTxBlcok = 13906910
       // $myFirstTxHashShort = getShortTx($myFirstTxHash)
-
-      $myYear = wlInfo.data.myYear
+      
+      $myYear = wlInfo.data.year
       $myFirstTxHash = wlInfo.data.first_tx_hash
       $myFirstTxHashShort = getShortTx(wlInfo.data.first_tx_hash)
       $myFirstTxTime = wlInfo.data.first_tx_time
       $myFirstTxBlcok = wlInfo.data.first_tx_block
+      
     } catch (e) {
       console.log(e)
     }
