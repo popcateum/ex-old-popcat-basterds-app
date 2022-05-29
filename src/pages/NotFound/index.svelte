@@ -1,5 +1,5 @@
 <div class="space">
-  <img class="nf-img" src="/images/2015.png" alt="sample" />
+  <img class="nf-img" src="/images/popcat2.png" alt="sample" />
   <div class="nf-title"><b>Not Found</b></div>
   <p>Oops, this route doesn't exist!</p>
   <a class="nf-link" href="/#/">Go to the main page.</a>

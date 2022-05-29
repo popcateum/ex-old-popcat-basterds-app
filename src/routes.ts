@@ -5,7 +5,7 @@ import NotFound from './pages/NotFound/index.svelte'
 
 export default {
   '/': Main,
-  '/wallet': Wallet,
+  '/wallet/:id': Wallet,
 
   // Catch-all, must be last
   '*': NotFound,
