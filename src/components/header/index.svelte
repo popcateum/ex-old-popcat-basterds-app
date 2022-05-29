@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { push } from 'svelte-spa-router'
   import Fa from 'svelte-fa'
   import { faBars } from '@fortawesome/free-solid-svg-icons'
   import Menu from '@/components/header/menu.svelte'
@@ -11,7 +12,7 @@
 
 <div class="header">
   <div class="header-logo">
-    <a href="/" class="header-logo-link">
+    <a href="/#/" class="header-logo-link">
       <img src="/images/oldpopcat.gif" alt="logo" class="header-logo-img" />
       <div class="header-logo-title">OLD POPCAT BASTERDS</div>
     </a>
@@ -20,6 +21,11 @@
     <div class="header-menu-item">
       <a href="#my-nft" class="header-menu-item-link" style="color: black;">
         <div class="header-menu-item-text" style="color: black;">MyNFT</div>
+      </a>
+    </div>
+    <div class="header-menu-item">
+      <a href="#status" class="header-menu-item-link" style="color: black;">
+        <div class="header-menu-item-text" style="color: black;">Status</div>
       </a>
     </div>
     <div class="header-menu-item">
@@ -93,6 +99,7 @@
 
   .header-menu-item-text {
     color: $primary-color;
+    cursor: pointer;
   }
 
   .toggle-button {

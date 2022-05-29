@@ -2,6 +2,8 @@
   import Saos from 'saos'
   import { fly } from 'svelte/transition'
   let isAscii = true
+  let flyProperty: any = { x: -3000, opacity: 1, duration: 1 }
+  let num: any = 1
 </script>
 
 <div class="wrap">
@@ -63,11 +65,19 @@
       . .
     </div>
     <div class="button-wrap">
-      <button class="normal-button" on:click="{() => (isAscii = !isAscii)}"> click here </button>
+      <button
+        class="normal-button"
+        on:click="{() => {
+          num = 20000
+          isAscii = !isAscii
+        }}"
+      >
+        click here
+      </button>
     </div>
-    <div style="height: 200px;">
+    <div style="height: 200px; width: 100%;">
       {#if isAscii}
-        <pre class="ascii" transition:fly="{{ x: -3000, opacity: 1, duration: 20000 }}">
+        <pre class="ascii" transition:fly="{{ x: -3000, opacity: 1, duration: num }}">
            /$$$$$$  /$$       /$$       /$$$$$$$                                           /$$           /$$$$$$$                        /$$                               /$$          
           /$$__  $$| $$      | $$      | $$__  $$                                         | $$          | $$__  $$                      | $$                              | $$          
          | $$  \ $$| $$  /$$$$$$$      | $$  \ $$ /$$$$$$   /$$$$$$   /$$$$$$$  /$$$$$$  /$$$$$$        | $$  \ $$  /$$$$$$   /$$$$$$$ /$$$$$$    /$$$$$$   /$$$$$$   /$$$$$$$  /$$$$$$$

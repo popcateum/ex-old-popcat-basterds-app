@@ -5,11 +5,13 @@
   import Incentive from '@/components/incentive/index.svelte'
   import MyNFT from '@/components/mynft/index.svelte'
   import Roadmap from '@/components/roadmap/index.svelte'
+  import Status from '@/components/status/index.svelte'
 </script>
 
 <Intro />
 <Rule />
 <Info />
+<Status />
 <Incentive />
 <MyNFT />
 <Roadmap />

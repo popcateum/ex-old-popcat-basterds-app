@@ -25,6 +25,11 @@
             <div class="header-menu-item-text">Opensea</div>
           </a>
         </div>
+        <div class="menu-list">
+          <a href="#status" class="header-menu-item-link" on:click>
+            <div class="header-menu-item-text">Status</div>
+          </a>
+        </div>
         <div class="menu-list"><Connect /></div>
       </div>
     </dib>
