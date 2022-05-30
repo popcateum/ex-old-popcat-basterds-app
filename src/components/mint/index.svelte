@@ -104,6 +104,7 @@
           </div>
           <div class="window-content">
             <div class="content-paragraph">Your wallet is not in the snapshot.</div>
+            <div class="content-paragraph">The snapshot period is from ethereum genesis block to May 20.</div>
             <div>
               <button class="normal-button" on:click> close </button>
             </div>
@@ -169,7 +170,7 @@
           </div>
         </div>
         <div class="window-content">
-          <div class="content-paragraph" style="width: 100%;">Please wallet connect</div>
+          <div class="content-paragraph" style="width: 100%;">Please connect wallet</div>
           <div>
             <button class="normal-button" on:click> close </button>
           </div>

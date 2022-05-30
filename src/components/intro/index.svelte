@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { myAddress, myYear } from '@/stores'
+
+  import { push } from 'svelte-spa-router'
+
   import MovingBar from './moving-bar.svelte'
   import WalletCheck from './walleCheck.svelte'
 
@@ -7,6 +11,14 @@
 
   function popcatImageupdate() {
     isMouseOver = !isMouseOver
+  }
+
+  function checkWallet() {
+    if ($myYear > 0) {
+      push(`/wallet/${$myAddress}`)
+    } else {
+      modalState = !modalState
+    }
   }
 </script>
 
@@ -64,7 +76,7 @@
   </div>
 
   <div class="button-wrap">
-    <button class="normal-button" on:click="{() => (modalState = !modalState)}"> check my wallet </button>
+    <button class="normal-button" on:click="{checkWallet}"> check my wallet </button>
   </div>
 </div>
 

@@ -1,31 +1,32 @@
 <script lang="ts">
   import Saos from 'saos'
-  import axios from 'axios'
   import { onMount } from 'svelte'
   import { push, location } from 'svelte-spa-router'
-
+  import Mint from '@/components/mint/index.svelte'
   let yearData: any = []
   let thisAddress: any
-  
-  onMount(async () => {
-    console.log('wallet')
-    console.log()
-    thisAddress = $location.split('/')[2]
-    await getCheckWallet(thisAddress)
-  })
+  let modalState: boolean = false
 
   let walletData = {
     address: '',
     year: 0,
-    first_tx_time: ''
+    date: '',
+    percent: '',
+    popcat: '',
+    txHash: ''
   }
+
+  onMount(async () => {
+    console.log('wallet')
+    thisAddress = $location.split('/')[2]
+    await getCheckWallet(thisAddress)
+  })
 
   function share() {
     if (navigator.share) {
       navigator
         .share({
-          title: 'OPB Share test',
-          text: 'opb',
+          text: 'Old Popcat Basterds',
           url: `https://oldpopcatbasterds.com/#/wallet/${thisAddress}`
         })
         .then(() => console.log('share success'))
@@ -34,9 +35,31 @@
   }
 
   async function getCheckWallet(address: string) {
-    // const data = await axios.get(`https://api.oldpopcatbasterds.com/whitelist/ticket?address=${address}`)
+    // const data = await axios.get(`https://api.oldpopcatbasterds.com/whitelist/info?address=${address}`)
+    const data = {
+      data: {
+        address: '0x9df1748c7691ab6725a7f2545007b54a965e900e',
+        year: 2021,
+        first_tx_hash: '0xe5b1ef9aa6d4932422bb37bd78d23d0ae8246f74d282b815be7bf91d3d06b928',
+        first_tx_time: '2021-12-30T13:16:34.000Z',
+        first_tx_block: '13,906,910',
+        date_info: {
+          date_string: '2021-12-30',
+          created_per_day: '104,862',
+          created_acc: '128,464,217',
+          total_wallet_count: '139,984,693',
+          top_percent: '91.7702%'
+        }
+      }
+    }
     // console.log(data.data)
-    walletData.year = 2018
+    walletData.year = data.data.year
+    walletData.address = data.data.address
+    walletData.date = data.data.date_info.date_string
+    walletData.percent = data.data.date_info.top_percent
+    walletData.txHash = data.data.first_tx_hash
+    setMyAddressPopcat(walletData.year)
+
     for (let i = 0; i < 8; i++) {
       let defaultNum = 2015
       if (walletData.year === defaultNum + i) {
@@ -46,12 +69,28 @@
         })
       }
     }
-    // data.data.address
-    // data.data.year
-    // data.data.first_tx_hash
-    // data.data.first_tx_time
-    // data.data.first_tx_block
-    // data.data.data_info
+  }
+
+  function setMyAddressPopcat(year: number) {
+    if (year === 2015) {
+      walletData.popcat = 'Legendary Popcat'
+    } else if (year === 2016) {
+      walletData.popcat = 'GOAT POPCAT'
+    } else if (year === 2017) {
+      walletData.popcat = 'Grand Master Popcat'
+    } else if (year === 2018) {
+      walletData.popcat = 'Master Popcat'
+    } else if (year === 2019) {
+      walletData.popcat = 'Padawan Popcat'
+    } else if (year === 2020) {
+      walletData.popcat = 'Youngling Popcat'
+    } else if (year === 2021) {
+      walletData.popcat = 'Kitten Popcat'
+    } else if (year === 2022) {
+      walletData.popcat = 'N00b Popcat'
+    } else {
+      walletData.popcat = 'None'
+    }
   }
 </script>
 
@@ -60,6 +99,8 @@
   <meta property="og:image" content="/images/wallet-og.png" />
   <meta property="og:description" content="{thisAddress}'s wallet" />
 </svelte:head>
+
+<Mint modalState="{modalState}" on:click="{() => (modalState = !modalState)}" />
 
 <div class="space"></div>
 
@@ -84,7 +125,7 @@
         </div>
         <div class="window-content">
           <div class="content-paragraph">Your wallet is not in the snapshot.</div>
-          <div class="content-paragraph">The snapshot period is from ethereal genesis block to May 20.</div>
+          <div class="content-paragraph">The snapshot period is from ethereum genesis block to May 20.</div>
           <div>
             <button class="normal-button" on:click="{() => push('/')}"> main page </button>
           </div>
@@ -118,17 +159,20 @@
               <img src="/images/{walletData.year}.png" alt="img" />
             </div>
           </div>
-          <div class="content-paragraph">
-            Your ETHEREUM wallet was born in <span class="red-sentence">3th Dec 2018</span>.
+          <div class="content-paragraph" style="padding: 20px;">
+            Your ETHEREUM wallet was born in <span class="red-sentence">{walletData.date}</span>.
             <br />
-            Your wallet age is top <span class="red-sentence">62.22%</span> from total Ethereum wallets. Click
-            <span style="color: #0000aa;">here</span>
+            Your wallet age is top <span class="red-sentence">{walletData.percent}</span> from total Ethereum wallets.
+            Click
+            <a href="https://etherscan.io/tx/{walletData.txHash}" target="_blank" style="color: #0000aa;">here</a>
             to see the data.
             <br />
+            <br />
+            Your can mint <span class="red-sentence">{walletData.popcat}</span>.
           </div>
           <div class="button-wrap">
             <button class="normal-button" on:click="{share}"> share link </button>
-            <button class="normal-button"> mint </button>
+            <button class="normal-button" on:click="{() => (modalState = !modalState)}"> mint </button>
           </div>
         </div>
       </div>
@@ -136,24 +180,6 @@
   </div>
 </div>
 
-<!-- <MetaTags
-  openGraph={{
-    images: [
-      {
-        url: 'https://www.example.ie/og-image.jpg',
-        width: 800,
-        height: 600,
-        alt: 'Og Image Alt'
-      },
-      {
-        url: 'https://www.example.ie/og-image-2.jpg',
-        width: 800,
-        height: 600,
-        alt: 'Og Image Alt 2'
-      }
-    ]
-  }}
-/> -->
 <style lang="scss">
   .image-wrap-mobile {
     display: none;

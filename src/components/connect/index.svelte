@@ -107,31 +107,22 @@
 
   function setMyAddressPercent() {
     if ($myYear === 2015) {
-      $myAddressPercent = '0.0124%'
       $claimablePopcat = 'Legendary Popcat'
     } else if ($myYear === 2016) {
-      $myAddressPercent = '0.4079%'
       $claimablePopcat = 'GOAT POPCAT'
     } else if ($myYear === 2017) {
-      $myAddressPercent = '9.2262%'
       $claimablePopcat = 'Grand Master Popcat'
     } else if ($myYear === 2018) {
-      $myAddressPercent = '28.2553%'
       $claimablePopcat = 'Master Popcat'
     } else if ($myYear === 2019) {
-      $myAddressPercent = '42.4132%'
       $claimablePopcat = 'Padawan Popcat'
     } else if ($myYear === 2020) {
-      $myAddressPercent = '64.0235%'
       $claimablePopcat = 'Youngling Popcat'
     } else if ($myYear === 2021) {
-      $myAddressPercent = '92.4565%'
       $claimablePopcat = 'Kitten Popcat'
     } else if ($myYear === 2022) {
-      $myAddressPercent = '100%'
       $claimablePopcat = 'N00b Popcat'
     } else {
-      $myAddressPercent = 'None'
       $claimablePopcat = 'None'
     }
   }
