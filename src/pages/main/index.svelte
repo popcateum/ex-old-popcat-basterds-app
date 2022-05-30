@@ -8,6 +8,12 @@
   import Status from '@/components/status/index.svelte'
 </script>
 
+<svelte:head>
+  <meta property="og:title" content="Old Popcat Basterds" />
+  <meta property="og:description" content="The world’s first NFT project based on real Ethereum history." />
+  <meta property="og:image" content="/images/og-image.png" />
+</svelte:head>
+
 <Intro />
 <Rule />
 <Info />

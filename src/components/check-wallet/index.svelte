@@ -2,16 +2,16 @@
   import Saos from 'saos'
   import axios from 'axios'
   import { onMount } from 'svelte'
-  import { push, location, querystring } from 'svelte-spa-router'
+  import { push, location } from 'svelte-spa-router'
 
   let yearData: any = []
-
-  export let params: any = {}
+  let thisAddress: any
+  
   onMount(async () => {
     console.log('wallet')
     console.log()
-
-    await getCheckWallet($location.split('/')[2])
+    thisAddress = $location.split('/')[2]
+    await getCheckWallet(thisAddress)
   })
 
   let walletData = {
@@ -26,7 +26,7 @@
         .share({
           title: 'OPB Share test',
           text: 'opb',
-          url: `https://oldpopcatbasterds.com/#/wallet/${$location.split('/')[2]}`
+          url: `https://oldpopcatbasterds.com/#/wallet/${thisAddress}`
         })
         .then(() => console.log('share success'))
         .catch(error => console.log('share error', error))
@@ -58,7 +58,7 @@
 <svelte:head>
   <meta property="og:title" content="Old Popcat Basterds" />
   <meta property="og:image" content="/images/wallet-og.png" />
-  <meta property="og:description" content="{params.first}'s wallet" />
+  <meta property="og:description" content="{thisAddress}'s wallet" />
 </svelte:head>
 
 <div class="space"></div>
