@@ -1,7 +1,25 @@
 <script lang="ts">
   import Saos from 'saos'
+  import { getMintState } from '@/blockchain/contracts/sale'
+  import { totalSupply } from '@/blockchain/contracts/oldpopcatbasterds'
+  import { infoData } from '@/components/data/index'
 
   let modalState: boolean = false
+
+  let saleMintState: any = infoData
+  let total: any
+
+  async function test() {
+    // const data = await getMintState()
+    total = await totalSupply()
+    const data = ['33', '10', '10', '10', '51', '15', '55', '100']
+    console.log('test')
+    for (let i = 0; i < 8; i++) {
+      saleMintState[i].current = parseInt(data[i])
+    }
+    console.log(saleMintState)
+  }
+  test()
 </script>
 
 {#if modalState}
@@ -48,151 +66,48 @@
         <div class="window-content">
           <div class="content-paragraph">Minting Status. . .</div>
           <div class="content-paragraph">
-            <div class="progress-bar-wrap">
-              <div class="progress-title-wrap">
-                <div class="progress-text">2015</div>
-                <div class="progress-text">Grand Master Popcat</div>
-              </div>
-              <div class="progress-bar-content-wrap">
-                <div class="progress-bar-content">
-                  <div class="progress-bar-content-bar"></div>
+            {#each saleMintState as item}
+              <div class="progress-bar-wrap">
+                <div class="progress-title-wrap">
+                  <div class="progress-text">{item.year}</div>
+                  <div class="progress-text">{item.title}</div>
                 </div>
-                <div class="progress-bar-number-wrap">
-                  <div class="progress-bar-number">1,000 Minted</div>
-                  <div class="progress-bar-number">Max 1000</div>
+                <div class="progress-bar-content-wrap">
+                  <div class="progress-bar-content">
+                    {#if item.current === item.total}
+                      <div class="progress-bar-content-bar" style="width: 100%; background-color: black;"></div>
+                    {:else}
+                      <div class="progress-bar-content-bar" style="width: {(item.current / item.total) * 100}%;"></div>
+                    {/if}
+                  </div>
+                  <div class="progress-bar-number-wrap">
+                    <div class="progress-bar-number">{item.current} Minted</div>
+                    <div class="progress-bar-number">Max {item.total}</div>
+                  </div>
                 </div>
-              </div>
-              <div class="progress-bar-percent-wrap">
-                <div class="progress-percent">(100%)</div>
-              </div>
-            </div>
-            <div class="progress-bar-wrap">
-              <div class="progress-title-wrap">
-                <div class="progress-text">2015</div>
-                <div class="progress-text">Grand Master Popcat</div>
-              </div>
-              <div class="progress-bar-content-wrap">
-                <div class="progress-bar-content">
-                  <div class="progress-bar-content-bar" style="width: 100%;"></div>
-                </div>
-                <div class="progress-bar-number-wrap">
-                  <div class="progress-bar-number">1,000 Minted</div>
-                  <div class="progress-bar-number">Max 1000</div>
+                <div class="progress-bar-percent-wrap">
+                  <div class="progress-percent">({Math.floor((item.current / item.total) * 100)}%)</div>
                 </div>
               </div>
-              <div class="progress-bar-percent-wrap">
-                <div class="progress-percent">(100%)</div>
-              </div>
-            </div>
-            <div class="progress-bar-wrap">
-              <div class="progress-title-wrap">
-                <div class="progress-text">2015</div>
-                <div class="progress-text">Grand Master Popcat</div>
-              </div>
-              <div class="progress-bar-content-wrap">
-                <div class="progress-bar-content"></div>
-                <div class="progress-bar-number-wrap">
-                  <div class="progress-bar-number">1,000 Minted</div>
-                  <div class="progress-bar-number">Max 1000</div>
-                </div>
-              </div>
-              <div class="progress-bar-percent-wrap">
-                <div class="progress-percent">(100%)</div>
-              </div>
-            </div>
-            <div class="progress-bar-wrap">
-              <div class="progress-title-wrap">
-                <div class="progress-text">2015</div>
-                <div class="progress-text">Grand Master Popcat</div>
-              </div>
-              <div class="progress-bar-content-wrap">
-                <div class="progress-bar-content"></div>
-                <div class="progress-bar-number-wrap">
-                  <div class="progress-bar-number">1,000 Minted</div>
-                  <div class="progress-bar-number">Max 1000</div>
-                </div>
-              </div>
-              <div class="progress-bar-percent-wrap">
-                <div class="progress-percent">(100%)</div>
-              </div>
-            </div>
-            <div class="progress-bar-wrap">
-              <div class="progress-title-wrap">
-                <div class="progress-text">2015</div>
-                <div class="progress-text">Grand Master Popcat</div>
-              </div>
-              <div class="progress-bar-content-wrap">
-                <div class="progress-bar-content"></div>
-                <div class="progress-bar-number-wrap">
-                  <div class="progress-bar-number">1,000 Minted</div>
-                  <div class="progress-bar-number">Max 1000</div>
-                </div>
-              </div>
-              <div class="progress-bar-percent-wrap">
-                <div class="progress-percent">(100%)</div>
-              </div>
-            </div>
-            <div class="progress-bar-wrap">
-              <div class="progress-title-wrap">
-                <div class="progress-text">2015</div>
-                <div class="progress-text">Grand Master Popcat</div>
-              </div>
-              <div class="progress-bar-content-wrap">
-                <div class="progress-bar-content"></div>
-                <div class="progress-bar-number-wrap">
-                  <div class="progress-bar-number">1,000 Minted</div>
-                  <div class="progress-bar-number">Max 1000</div>
-                </div>
-              </div>
-              <div class="progress-bar-percent-wrap">
-                <div class="progress-percent">(100%)</div>
-              </div>
-            </div>
-            <div class="progress-bar-wrap">
-              <div class="progress-title-wrap">
-                <div class="progress-text">2015</div>
-                <div class="progress-text">Grand Master Popcat</div>
-              </div>
-              <div class="progress-bar-content-wrap">
-                <div class="progress-bar-content"></div>
-                <div class="progress-bar-number-wrap">
-                  <div class="progress-bar-number">1,000 Minted</div>
-                  <div class="progress-bar-number">Max 1000</div>
-                </div>
-              </div>
-              <div class="progress-bar-percent-wrap">
-                <div class="progress-percent">(100%)</div>
-              </div>
-            </div>
-            <div class="progress-bar-wrap">
-              <div class="progress-title-wrap">
-                <div class="progress-text">2015</div>
-                <div class="progress-text">Grand Master Popcat</div>
-              </div>
-              <div class="progress-bar-content-wrap">
-                <div class="progress-bar-content"></div>
-                <div class="progress-bar-number-wrap">
-                  <div class="progress-bar-number">1,000 Minted</div>
-                  <div class="progress-bar-number">Max 1000</div>
-                </div>
-              </div>
-              <div class="progress-bar-percent-wrap">
-                <div class="progress-percent">(100%)</div>
-              </div>
-            </div>
+            {/each}
             <div class="progress-bar-wrap">
               <div class="progress-title-wrap">
                 <div class="progress-text">Total Old Popcats</div>
               </div>
               <div class="progress-bar-content-wrap">
-                <div class="progress-bar-content"></div>
+                <div class="progress-bar-content">
+                  <div
+                    class="progress-bar-content-bar"
+                    style="width: {(total / 10000) * 100}%; background-color: #FDF30A;"
+                  ></div>
+                </div>
                 <div class="progress-bar-number-wrap">
-                  <div class="progress-bar-number">1,000 Minted</div>
-                  <div class="progress-bar-number">Max 1000</div>
+                  <div class="progress-bar-number">{total} Minted</div>
+                  <div class="progress-bar-number">Max 10000</div>
                 </div>
               </div>
               <div class="progress-bar-percent-wrap">
-                <div class="progress-percent">(100%)</div>
+                <div class="progress-percent">({Math.floor((total / 10000) * 100)}%)</div>
               </div>
             </div>
           </div>
@@ -242,7 +157,7 @@
         border: 1px solid #9d9d9d;
         box-sizing: border-box;
         .progress-bar-content-bar {
-          width: 20%;
+          width: 0%;
           height: 100%;
           background-color: $primary-color;
         }
@@ -323,7 +238,7 @@
           border: 1px solid #9d9d9d;
           box-sizing: border-box;
           .progress-bar-content-bar {
-            width: 20%;
+            width: 0%;
             height: 100%;
             background-color: $primary-color;
           }
@@ -394,7 +309,7 @@
           border: 1px solid #9d9d9d;
           box-sizing: border-box;
           .progress-bar-content-bar {
-            width: 20%;
+            width: 0%;
             height: 100%;
             background-color: $primary-color;
           }
