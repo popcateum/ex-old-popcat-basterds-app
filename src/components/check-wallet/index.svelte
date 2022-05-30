@@ -1,10 +1,10 @@
 <script lang="ts">
   import Saos from 'saos'
-  import { myYear, myAddressPercent, myFirstTxHash, myFirstTxBlcok, myFirstTxHashShort } from '@/stores'
   import axios from 'axios'
   import { onMount } from 'svelte'
+  import { push } from 'svelte-spa-router'
 
-  const test = 2022
+  let yearData: any = []
 
   export let params: any = {}
   onMount(async () => {
@@ -12,10 +12,38 @@
     await getCheckWallet(params.first)
   })
 
-  async function getCheckWallet(address: string) {
-    const data = await axios.get(`https://api.oldpopcatbasterds.com/whitelist/ticket?address=${address}`)
-    console.log(data.data)
+  let walletData = {
+    address: '',
+    year: 0,
+    first_tx_time: ''
+  }
 
+  function share() {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: 'OPB Share test',
+          text: 'opb',
+          url: `https://oldpopcatbasterds.com/#/wallet/${params.first}`
+        })
+        .then(() => console.log('share success'))
+        .catch(error => console.log('share error', error))
+    }
+  }
+
+  async function getCheckWallet(address: string) {
+    // const data = await axios.get(`https://api.oldpopcatbasterds.com/whitelist/ticket?address=${address}`)
+    // console.log(data.data)
+    walletData.year = 2018
+    for (let i = 0; i < 8; i++) {
+      let defaultNum = 2015
+      if (walletData.year === defaultNum + i) {
+      } else {
+        yearData.push({
+          year: defaultNum + i
+        })
+      }
+    }
     // data.data.address
     // data.data.year
     // data.data.first_tx_hash
@@ -26,7 +54,9 @@
 </script>
 
 <svelte:head>
-  <meta property="og:image" content="/images/{test}.png" />
+  <meta property="og:title" content="Old Popcat Basterds" />
+  <meta property="og:image" content="/images/wallet-og.png" />
+  <meta property="og:description" content="{params.first}'s wallet" />
 </svelte:head>
 
 <div class="space"></div>
@@ -43,7 +73,7 @@
     </Saos>
   </div>
   <div class="content-wrap">
-    {#if $myYear === 1}
+    {#if walletData.year === 0}
       <div class="window-box">
         <div class="window-bar">
           <div class="window-close">
@@ -52,8 +82,9 @@
         </div>
         <div class="window-content">
           <div class="content-paragraph">Your wallet is not in the snapshot.</div>
+          <div class="content-paragraph">The snapshot period is from ethereal genesis block to May 20.</div>
           <div>
-            <button class="normal-button" on:click> close </button>
+            <button class="normal-button" on:click="{() => push('/')}"> main page </button>
           </div>
         </div>
       </div>
@@ -65,21 +96,37 @@
           </div>
         </div>
         <div class="window-content">
+          <div class="image-wrap">
+            <div class="space"></div>
+            <div class="main-image">
+              <img src="/images/{walletData.year}.png" alt="img" />
+            </div>
+            <div class="sub-image-wrap">
+              {#each yearData as item}
+                <div class="sub-image">
+                  <img src="/images/{item.year}.png" alt="img" />
+                </div>
+              {/each}
+            </div>
+            <div class="space"></div>
+          </div>
+
+          <div class="image-wrap-mobile">
+            <div class="main-image">
+              <img src="/images/{walletData.year}.png" alt="img" />
+            </div>
+          </div>
           <div class="content-paragraph">
-            Your ETHEREUM wallet was born in <span class="red-sentence">{$myYear}</span>.
+            Your ETHEREUM wallet was born in <span class="red-sentence">3th Dec 2018</span>.
             <br />
-            Your wallet age is top <span class="red-sentence">{$myAddressPercent}</span> from total Ethereum wallets.
+            Your wallet age is top <span class="red-sentence">62.22%</span> from total Ethereum wallets. Click
+            <span style="color: #0000aa;">here</span>
+            to see the data.
             <br />
-            Your first Tx hash is
-            <span class="red-sentence"
-              ><a href="https://etherscan.io/tx/{$myFirstTxHash}" target="_blank">{$myFirstTxHashShort}</a></span
-            >.
-            <br />
-            Your first Tx block is <span class="red-sentence">{$myFirstTxBlcok}</span>.
           </div>
           <div class="button-wrap">
-            <button class="normal-button"> share </button>
-            <button class="normal-button"> check my wallet </button>
+            <button class="normal-button" on:click="{share}"> share link </button>
+            <button class="normal-button"> mint </button>
           </div>
         </div>
       </div>
@@ -106,6 +153,41 @@
   }}
 /> -->
 <style lang="scss">
+  .image-wrap-mobile {
+    display: none;
+  }
+  .image-wrap {
+    display: flex;
+
+    padding: 20px;
+    .main-image {
+      width: 40%;
+      img {
+        width: 100%;
+      }
+    }
+    .space {
+      width: 10%;
+    }
+    .sub-image-wrap {
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      .sub-image {
+        display: flex;
+        width: 100px;
+        height: auto;
+        padding: 10px;
+        img {
+          width: 100%;
+          filter: grayscale(100%);
+        }
+      }
+    }
+  }
   .wrap {
     max-width: 1000px;
     margin: 0px auto;
@@ -132,7 +214,26 @@
     }
   }
 
+  @media screen and (max-width: 1000px) {
+    .image-wrap {
+      display: none;
+    }
+    .image-wrap-mobile {
+      display: flex;
+      justify-content: center;
+      .main-image {
+        width: 60%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
   @media screen and (max-width: 768px) {
+    .image-wrap {
+      display: none;
+    }
     .title-wrap-mobile {
       display: flex;
       flex-direction: column;
